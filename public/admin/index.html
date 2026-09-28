@@ -159,9 +159,20 @@
        * Docs-as-Code Editor Components for Sveltia CMS
        * -----------------------------------------------------------------------
        */
+      function initEditorComponents() {
+        const cms = window.CMS || (typeof CMS !== 'undefined' ? CMS : null);
+        if (!cms || typeof cms.registerEditorComponent !== 'function') {
+          // Retry briefly while Sveltia finishes mounting
+          if (!window._cmsRetryCount) window._cmsRetryCount = 0;
+          if (window._cmsRetryCount++ < 30) {
+            setTimeout(initEditorComponents, 150);
+          }
+          return;
+        }
 
-      // 1. Callouts / Asides (<Aside type="..." title="...">...</Aside>)
-      CMS.registerEditorComponent({
+        try {
+          // 1. Callouts / Asides (<Aside type="..." title="...">...</Aside>)
+          cms.registerEditorComponent({
         id: 'aside',
         label: 'Starlight Aside / Callout',
         fields: [
@@ -200,7 +211,7 @@
       });
 
       // 2. Numbered Sequential Steps (<Steps>...</Steps>)
-      CMS.registerEditorComponent({
+      cms.registerEditorComponent({
         id: 'steps',
         label: 'Starlight Steps',
         fields: [
@@ -251,7 +262,7 @@
       });
 
       // 3. Directory File Tree (<FileTree>...</FileTree>)
-      CMS.registerEditorComponent({
+      cms.registerEditorComponent({
         id: 'filetree',
         label: 'Starlight File Tree',
         fields: [
@@ -278,7 +289,7 @@
       });
 
       // 4. Badges (<Badge text="..." variant="..." size="..." />)
-      CMS.registerEditorComponent({
+      cms.registerEditorComponent({
         id: 'badge',
         label: 'Starlight Badge',
         fields: [
@@ -317,7 +328,7 @@
       });
 
       // 5. Dual-Tab Switcher (<Tabs><TabItem label="...">...</TabItem></Tabs>)
-      CMS.registerEditorComponent({
+      cms.registerEditorComponent({
         id: 'tabs',
         label: 'Starlight Tabs (2 Tabs)',
         fields: [
@@ -350,6 +361,11 @@
           `;
         }
       });
+        } catch (e) {
+          console.warn('Could not register CMS editor components:', e);
+        }
+      }
+      initEditorComponents();
       /**
        * -----------------------------------------------------------------------
        * Article Dataset & Link Management for Sveltia CMS
@@ -870,14 +886,15 @@
       }
 
       // Initialize
+      function runInit() {
+        try { initLinkDialogObserver(); } catch (e) { console.warn('Link dialog observer init error:', e); }
+        try { syncArticles(); } catch (e) { console.warn('Sync articles init error:', e); }
+      }
+
       if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', function () {
-          initLinkDialogObserver();
-          syncArticles();
-        });
+        document.addEventListener('DOMContentLoaded', runInit);
       } else {
-        initLinkDialogObserver();
-        syncArticles();
+        runInit();
       }
     </script>
   </body>
