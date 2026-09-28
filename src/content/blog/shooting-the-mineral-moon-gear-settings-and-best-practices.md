@@ -17,7 +17,7 @@ draft: false
 Capturing the subtle geological colors of the lunar surface requires planning, stable gear, and precise settings. Before you even reach the post-processing and stacking phase, you have to nail the shots in the field. Here is a breakdown of the exact gear and settings used for this project, along with guidelines for capturing your own mineral moon sequence.
 
 <Aside type="note" title="Looking for editing tips?">
-Read [Beyond the Grey: How to Edit a Stunning High-Resolution Mineral Moon](/collections/blog/entries/beyond-the-grey)
+Read [Beyond the Grey: How to Edit a Stunning High-Resolution Mineral Moon](/blog/beyond-the-grey/)
 </Aside>
 
 ## The Gear
