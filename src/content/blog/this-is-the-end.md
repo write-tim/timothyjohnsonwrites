@@ -8,13 +8,13 @@ category: life
 author: Timothy Johnson
 tags:
   - Fancy pants.
-coverImage: /assets/blog/C_R78150.jpg
+coverImage: /assets/blog/C_R78150.webp
 draft: true
 ---
 
 ## Heading 2
 
-![](/assets/blog/C_R78150.jpg)
+![](/assets/blog/C_R78150.webp)
 
 Paragraph.
 

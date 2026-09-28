@@ -9,7 +9,7 @@ author: Timothy Johnson
 tags:
   - harvest moon
   - photography
-coverImage: /assets/blog/2026 Harvest Moon.jpg
+coverImage: /assets/blog/2026 Harvest Moon.webp
 draft: false
 ---
 

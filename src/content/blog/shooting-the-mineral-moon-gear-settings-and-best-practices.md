@@ -10,7 +10,7 @@ tags:
   - photography
   - gear
   - settings
-coverImage: /assets/blog/2026 Harvest Moon.jpg
+coverImage: /assets/blog/2026 Harvest Moon.webp
 draft: false
 ---
 
