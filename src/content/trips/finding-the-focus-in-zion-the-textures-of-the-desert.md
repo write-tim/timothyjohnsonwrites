@@ -3,15 +3,15 @@ title: Finding the Focus in Zion
 place: Zion National Park
 date: 2024-01-01
 summary: 'Starting the year in awe: the textures of the desert.'
-heroImage: /assets/2014_Zion_Watchman.jpeg
+heroImage: /assets/2024_Zion_Watchman.jpeg
 highlights:
   - The Watchman
   - Scout's Lookout
   - The Narrows
 circlePhotos:
-  - /assets/2014_Zion_Watchman.jpeg
+  - /assets/2024_Zion_Watchman.jpeg
 gallery:
-  - /assets/2014_Zion_Watchman.jpeg
+  - /assets/2024_Zion_Watchman.jpeg
 draft: false
 ---
 
