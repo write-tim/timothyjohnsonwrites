@@ -8,8 +8,9 @@ category: life
 author: Timothy Johnson
 tags:
   - harvest moon
+  - photography
 coverImage: /assets/blog/2026 Harvest Moon.jpg
-draft: true
+draft: false
 ---
 
 When we look up at the night sky, the moon appears as a bright, glowing silvery-grey disc. But beneath that monochrome facade lies a vibrant geological map just waiting to be revealed. The blues indicate areas rich in titanium, while the oranges and rusty reds highlight iron-poor highlands. 
@@ -44,16 +45,18 @@ Before we can pull out the colors, we need a clean, neutral baseline.
 
 Here is where we eliminate the digital noise and atmospheric distortion. By stacking the images, the software averages out random noise, leaving behind an incredibly clean file that can handle aggressive color editing.
 
-1. Open Photoshop and navigate to \*\*File > Scripts > Load Files into Stack\*\*.
+<Steps>
+1. Open Photoshop and navigate to **File > Scripts > Load Files into Stack**.
 2. Browse and select all your exported TIFFs. 
-3. \*\*Important:\*\* Do \*not\* check "Attempt to Automatically Align Source Images" here. Photoshop often struggles to align a bright circle in a black void and will create a blurry, ghosted mess. Just load the files.
-4. Once loaded, select all the layers in the Layers panel. Go to \*\*Edit > Auto-Align Layers\*\*. Select \*\*Reposition\*\* (not Auto). This forces Photoshop to only shift the frames up, down, left, and right, preventing it from trying to warp the moon.
-5. With all layers still selected, right-click and choose \*\*Convert to Smart Object\*\*. (Grab a coffee; this might take a minute.)
-6. Go to \*\*Layer > Smart Objects > Stack Mode > Mean\*\* (or Median). 
+3. **Important:** Do _not_ check "Attempt to Automatically Align Source Images" here. Photoshop often struggles to align a bright circle in a black void and will create a blurry, ghosted mess. Just load the files.
+4. Once loaded, select all the layers in the Layers panel. Go to **Edit > Auto-Align Layers**. Select **Reposition** (not Auto). This forces Photoshop to only shift the frames up, down, left, and right, preventing it from trying to warp the moon.
+5. With all layers still selected, right-click and choose **Convert to Smart Object**. (Grab a coffee; this might take a minute.)
+6. Go to **Layer > Smart Objects > Stack Mode > Mean** (or Median). 
+</Steps>
 
-Watch as the noise completely melts away! Right-click your Smart Object and select \*\*Rasterize Layer\*\*. You now have a flawless, noise-free lunar canvas.
+Watch as the noise completely melts away! Right-click your Smart Object and select **Rasterize Layer**. You now have a flawless, noise-free lunar canvas.
 
-\*(Pro-Tip: If Photoshop's alignment keeps failing and your moon looks blurry, download specialized, free astrophotography software like \*\*PIPP\*\* to center the images, and \*\*AutoStakkert!\*\* to stack them. It's bulletproof!)\*
+_(Pro-Tip: If Photoshop's alignment keeps failing and your moon looks blurry, download specialized, free astrophotography software like **PIPP** to center the images, and **AutoStakkert!** to stack them. It's bulletproof!)_
 
 ***
 
@@ -61,10 +64,12 @@ Watch as the noise completely melts away! Right-click your Smart Object and sele
 
 Now for the fun part. Because we removed the noise in Phase 2, we can now push the saturation without destroying the image.
 
-1. \*\*Neutralize the Cast:\*\* Go to \*\*Image > Auto Color\*\* or \*\*Auto Tone\*\*. This usually does a fantastic job of removing any lingering yellow atmospheric haze.
-2. \*\*Iterative Saturation:\*\* Add a \*\*Hue/Saturation adjustment layer\*\*. Boost the saturation by \*\*+15 to +20\*\*. 
-3. \*\*Repeat, Don't Rush:\*\* Do \*not\* push the slider to +100 in one go. That causes ugly color artifacting. Instead, duplicate that Hue/Saturation layer 4-6 times. With each new layer, the blues (titanium-rich basalts) and oranges (iron-poor highlands) will separate and pop.
-4. \*\*Contrast:\*\* Add a \*\*Curves adjustment layer\*\* and create a gentle S-curve. This darkens the lunar \*maria\* (the dark seas) and brightens the highlands, giving the moon a 3D pop.
-5. \*\*Final Sharpening:\*\* Merge all your visible layers into a new layer (\`Ctrl+Alt+Shift+E\` on PC or \`Cmd+Opt+Shift+E\` on Mac). Go to \*\*Filter > Other > High Pass\*\*, set a low radius (around 2.5px), and change the layer's blend mode to \*\*Overlay\*\* or \*\*Linear Light\*\*. This will snap the craters into tack-sharp focus.
+<Steps>
+1. **Neutralize the Cast:** Go to **Image > Auto Color** or **Auto Tone**. This usually does a fantastic job of removing any lingering yellow atmospheric haze.
+2. **Iterative Saturation:** Add a **Hue/Saturation adjustment layer**. Boost the saturation by **+15 to +20**. 
+3. **Repeat, Don't Rush:** Do _not_ push the slider to +100 in one go. That causes ugly color artifacting. Instead, duplicate that Hue/Saturation layer 4-6 times. With each new layer, the blues (titanium-rich basalts) and oranges (iron-poor highlands) will separate and pop.
+4. **Contrast:** Add a **Curves adjustment layer** and create a gentle S-curve. This darkens the lunar _maria_ (the dark seas) and brightens the highlands, giving the moon a 3D pop.
+5. **Final Sharpening:** Merge all your visible layers into a new layer (\`Ctrl+Alt+Shift+E\` on PC or \`Cmd+Opt+Shift+E\` on Mac). Go to **Filter > Other > High Pass**, set a low radius (around 2.5px), and change the layer's blend mode to **Overlay** or **Linear Light**. This will snap the craters into tack-sharp focus.
+</Steps>
 
 And there you have it! You've successfully turned a standard grey moon into a vibrant geological map.
