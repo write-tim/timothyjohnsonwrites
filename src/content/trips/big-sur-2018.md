@@ -3,16 +3,16 @@ title: Big Sur International Marathon
 place: Big Sur, California
 date: 2018-04-29
 summary: Running on the ragged edge of the western world.
-heroImage: /assets/2018_BigSur_BixbyBridgeBig.jpg
+heroImage: /assets/trips/2018_BigSur_BixbyBridgeBig.jpg
 highlights:
   - Hurricane Point
   - Taiko Drummers
   - Strawberries at mile 23
 circlePhotos:
-  - /assets/2018_BigSur_BixbyBridgeBig.jpg
+  - /assets/trips/2018_BigSur_BixbyBridgeBig.jpg
 gallery:
-  - /assets/2018_BigSur_BixbyBridgeBig.jpg
-  - /assets/Big_Sur.jpg
+  - /assets/trips/2018_BigSur_BixbyBridgeBig.jpg
+  - /assets/trips/Big_Sur.jpg
 draft: false
 ---
 
