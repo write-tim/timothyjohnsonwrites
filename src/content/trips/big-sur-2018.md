@@ -12,7 +12,7 @@ circlePhotos:
   - /assets/trips/2018_BigSur_BixbyBridgeBig.jpg
 gallery:
   - /assets/trips/2018_BigSur_BixbyBridgeBig.jpg
-  - /assets/trips/Big_Sur.jpg
+  - /assets/trips/2018_Big_Sur.jpg
 draft: false
 ---
 
