@@ -1,7 +1,7 @@
 ---
-title: Beyond the Grey
-subtitle: How to Edit a Stunning High-Resolution Mineral Moon
-description: 2026 Harvest Moon
+title: 'Beyond the Grey: How to Edit a Stunning High-Resolution Mineral Moon'
+subtitle: The 2026 Harvest Moon
+description: ''
 date: 2026-09-26T12:00:00-05:00
 updated: ''
 category: life
