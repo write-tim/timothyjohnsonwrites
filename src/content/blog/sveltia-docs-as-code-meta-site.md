@@ -1,8 +1,9 @@
 ---
 title: "Living Docs-as-Code: Architecting a 'Meta' Documentation Blueprint"
-subtitle: "How to pair Astro, Starlight, and Sveltia CMS into a zero-backend, Git-backed design system that bridges engineers and technical writers."
-description: "An architectural case study of docs.timothyjohnsonwrites.com: building a living documentation site about writing documentation using Astro, Starlight, Sveltia CMS, and automated CI/CD quality gates."
-date: 2026-09-25
+subtitle: How to pair Astro, Starlight, and Sveltia CMS into a zero-backend, Git-backed design system that bridges engineers and technical writers.
+description: 'An architectural case study of docs.timothyjohnsonwrites.com: building a living documentation site about writing documentation using Astro, Starlight, Sveltia CMS, and automated CI/CD quality gates.'
+date: 2026-09-12T00:00:00-05:00
+updated: ''
 category: tech
 author: Timothy Johnson
 tags:
@@ -12,6 +13,7 @@ tags:
   - starlight
   - technical-writing
   - architecture
+coverImage: ''
 draft: false
 ---
 
