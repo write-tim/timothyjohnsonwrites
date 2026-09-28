@@ -1,0 +1,13 @@
+---
+interface Props {
+  syncKey?: string;
+  class?: string;
+  [key: string]: any;
+}
+
+const { syncKey, class: className, ...rest } = Astro.props;
+---
+
+<starlight-tabs class:list={['tabs', 'sl-tabs', className]} data-sync-key={syncKey} {...rest}>
+  <slot />
+</starlight-tabs>

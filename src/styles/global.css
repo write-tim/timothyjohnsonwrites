@@ -1286,3 +1286,407 @@ body.has-deck .site-footer {
     font-size: 0.9rem;
   }
 }
+
+/* ==========================================================================
+   Docs-as-Code Component Library (Starlight Design System)
+   ========================================================================== */
+
+/* 1. Procedural Steps (<Steps>, .sl-steps, .steps, <steps>) */
+.sl-steps,
+.steps,
+steps {
+  --bullet-size: 2rem;
+  --bullet-margin: 0.375rem;
+  display: block;
+  margin: 1.75rem 0;
+}
+
+:is(.sl-steps, .steps, steps) > ol,
+ol:is(.sl-steps, .steps) {
+  counter-reset: steps-counter var(--sl-steps-start, 0);
+  padding-inline-start: 0;
+  list-style: none;
+  margin: 0;
+}
+
+:is(.sl-steps, .steps, steps) > ol > li,
+ol:is(.sl-steps, .steps) > li,
+:is(.sl-steps, .steps, steps) > li {
+  counter-increment: steps-counter;
+  padding-inline-start: calc(var(--bullet-size) + 1.25rem);
+  min-height: calc(var(--bullet-size) + var(--bullet-margin));
+  padding-bottom: 1.5rem;
+  position: relative;
+  margin-top: 0;
+}
+
+:is(.sl-steps, .steps, steps) > ol > li::before,
+ol:is(.sl-steps, .steps) > li::before,
+:is(.sl-steps, .steps, steps) > li::before {
+  content: counter(steps-counter);
+  top: 0;
+  width: var(--bullet-size);
+  height: var(--bullet-size);
+  line-height: var(--bullet-size);
+  font-size: 0.85rem;
+  text-align: center;
+  color: var(--text-strong);
+  background-color: var(--surface-2);
+  box-shadow: inset 0 0 0 1px var(--border);
+  border-radius: 9999px;
+  font-weight: 700;
+  font-family: var(--font-sans);
+  position: absolute;
+  inset-inline-start: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+:is(.sl-steps, .steps, steps) > ol > li::after,
+ol:is(.sl-steps, .steps) > li::after,
+:is(.sl-steps, .steps, steps) > li::after {
+  --guide-width: 2px;
+  content: "";
+  top: calc(var(--bullet-size) + 0.35rem);
+  bottom: 0.35rem;
+  width: var(--guide-width);
+  background-color: var(--border);
+  position: absolute;
+  inset-inline-start: calc((var(--bullet-size) - var(--guide-width)) / 2);
+}
+
+:is(.sl-steps, .steps, steps) > ol > li:last-child::after,
+ol:is(.sl-steps, .steps) > li:last-child::after,
+:is(.sl-steps, .steps, steps) > li:last-child::after {
+  display: none;
+}
+
+:is(.sl-steps, .steps, steps) > ol > li > :first-child,
+ol:is(.sl-steps, .steps) > li > :first-child {
+  margin-top: 0;
+}
+:is(.sl-steps, .steps, steps) > ol > li > :last-child,
+ol:is(.sl-steps, .steps) > li > :last-child {
+  margin-bottom: 0;
+}
+
+/* 2. Callouts / Asides (<Aside>, .starlight-aside, .aside, <aside type="...">) */
+.starlight-aside,
+.aside,
+aside[type] {
+  --aside-border: var(--accent);
+  --aside-bg: rgba(37, 99, 235, 0.07);
+  --aside-text: var(--text);
+  --aside-title-color: var(--accent);
+  border-inline-start: 0.28rem solid var(--aside-border);
+  background-color: var(--aside-bg);
+  color: var(--aside-text);
+  padding: 1rem 1.25rem;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  margin: 1.75rem 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+:is(.starlight-aside--note, .aside--note, aside[type="note"]) {
+  --aside-border: #3b82f6;
+  --aside-bg: rgba(59, 130, 246, 0.08);
+  --aside-title-color: #2563eb;
+}
+:is(.starlight-aside--tip, .aside--tip, aside[type="tip"]) {
+  --aside-border: #8b5cf6;
+  --aside-bg: rgba(139, 92, 246, 0.08);
+  --aside-title-color: #7c3aed;
+}
+:is(.starlight-aside--caution, .aside--caution, aside[type="caution"]) {
+  --aside-border: #f59e0b;
+  --aside-bg: rgba(245, 158, 11, 0.09);
+  --aside-title-color: #d97706;
+}
+:is(.starlight-aside--danger, .aside--danger, aside[type="danger"]) {
+  --aside-border: #ef4444;
+  --aside-bg: rgba(239, 68, 68, 0.08);
+  --aside-title-color: #dc2626;
+}
+
+html[data-theme='dark'] :is(.starlight-aside--note, .aside--note, aside[type="note"]) {
+  --aside-title-color: #93c5fd;
+  --aside-bg: rgba(37, 99, 235, 0.16);
+}
+html[data-theme='dark'] :is(.starlight-aside--tip, .aside--tip, aside[type="tip"]) {
+  --aside-title-color: #c4b5fd;
+  --aside-bg: rgba(124, 58, 237, 0.16);
+}
+html[data-theme='dark'] :is(.starlight-aside--caution, .aside--caution, aside[type="caution"]) {
+  --aside-title-color: #fcd34d;
+  --aside-bg: rgba(217, 119, 6, 0.16);
+}
+html[data-theme='dark'] :is(.starlight-aside--danger, .aside--danger, aside[type="danger"]) {
+  --aside-title-color: #fca5a5;
+  --aside-bg: rgba(220, 38, 38, 0.16);
+}
+
+.starlight-aside__title,
+.aside__title {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--aside-title-color);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.3;
+}
+.starlight-aside__title svg,
+.aside__title svg {
+  width: 1.15rem;
+  height: 1.15rem;
+  flex-shrink: 0;
+}
+.starlight-aside__content,
+.aside__content {
+  color: var(--text);
+}
+.starlight-aside__content > :first-child,
+.aside__content > :first-child {
+  margin-top: 0;
+}
+.starlight-aside__content > :last-child,
+.aside__content > :last-child {
+  margin-bottom: 0;
+}
+
+/* 3. Badges & Status Indicators (<Badge>, .sl-badge, .badge-pill, <badge>) */
+.sl-badge,
+.badge-pill,
+badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1;
+  padding: 0.25rem 0.65rem;
+  border-radius: 9999px;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  color: var(--text);
+  white-space: nowrap;
+  vertical-align: middle;
+}
+:is(.sl-badge, .badge-pill, badge).note {
+  border-color: rgba(59, 130, 246, 0.3);
+  background: rgba(59, 130, 246, 0.12);
+  color: #2563eb;
+}
+:is(.sl-badge, .badge-pill, badge).tip {
+  border-color: rgba(139, 92, 246, 0.3);
+  background: rgba(139, 92, 246, 0.12);
+  color: #7c3aed;
+}
+:is(.sl-badge, .badge-pill, badge).caution {
+  border-color: rgba(245, 158, 11, 0.3);
+  background: rgba(245, 158, 11, 0.12);
+  color: #d97706;
+}
+:is(.sl-badge, .badge-pill, badge).danger {
+  border-color: rgba(239, 68, 68, 0.3);
+  background: rgba(239, 68, 68, 0.12);
+  color: #dc2626;
+}
+:is(.sl-badge, .badge-pill, badge).success {
+  border-color: rgba(16, 185, 129, 0.3);
+  background: rgba(16, 185, 129, 0.12);
+  color: #059669;
+}
+html[data-theme='dark'] :is(.sl-badge, .badge-pill, badge).note { color: #93c5fd; }
+html[data-theme='dark'] :is(.sl-badge, .badge-pill, badge).tip { color: #c4b5fd; }
+html[data-theme='dark'] :is(.sl-badge, .badge-pill, badge).caution { color: #fcd34d; }
+html[data-theme='dark'] :is(.sl-badge, .badge-pill, badge).danger { color: #fca5a5; }
+html[data-theme='dark'] :is(.sl-badge, .badge-pill, badge).success { color: #6ee7b7; }
+:is(.sl-badge, .badge-pill, badge).small { font-size: 0.7rem; padding: 0.15rem 0.5rem; }
+:is(.sl-badge, .badge-pill, badge).large { font-size: 0.85rem; padding: 0.35rem 0.85rem; }
+
+/* 4. Cards & CardGrid (<Card>, <CardGrid>, .card, .card-grid) */
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  margin: 1.75rem 0;
+}
+@media (min-width: 640px) {
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  .card-grid.stagger {
+    --stagger-height: 2rem;
+    padding-bottom: var(--stagger-height);
+  }
+  .card-grid.stagger > :nth-child(2n) {
+    transform: translateY(var(--stagger-height));
+  }
+}
+.card,
+.sl-card {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.card:hover,
+.sl-card:hover {
+  border-color: var(--accent);
+  box-shadow: var(--shadow-md);
+}
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+.card-icon {
+  font-size: 1.4rem;
+  line-height: 1;
+}
+.card-title {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-strong);
+}
+.card-body {
+  font-size: 0.95rem;
+  color: var(--text);
+  line-height: 1.6;
+}
+.card-body > :first-child { margin-top: 0; }
+.card-body > :last-child { margin-bottom: 0; }
+
+/* 5. Tabs & TabItem (<Tabs>, <TabItem>, starlight-tabs, .tabs, <tabs>) */
+starlight-tabs,
+.tabs,
+tabs {
+  display: block;
+  margin: 1.75rem 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--surface);
+}
+.tablist-wrapper {
+  overflow-x: auto;
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--border);
+}
+[role="tablist"] {
+  display: flex;
+  gap: 0.25rem;
+  padding: 0.35rem 0.5rem 0;
+  margin: 0;
+  list-style: none;
+}
+.tab {
+  display: flex;
+}
+.tab [role="tab"],
+[role="tablist"] button[role="tab"] {
+  border: none;
+  background: transparent;
+  padding: 0.5rem 1rem;
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--muted);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: color 0.15s ease, border-color 0.15s ease;
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+}
+.tab [role="tab"]:hover,
+[role="tablist"] button[role="tab"]:hover {
+  color: var(--text-strong);
+}
+.tab [role="tab"][aria-selected="true"],
+[role="tablist"] button[role="tab"][aria-selected="true"] {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+  background: var(--surface);
+  font-weight: 600;
+}
+[role="tabpanel"],
+.tab-panel,
+tabitem {
+  padding: 1.25rem;
+  display: block;
+}
+[role="tabpanel"][hidden],
+.tab-panel[hidden],
+tabitem[hidden] {
+  display: none !important;
+}
+[role="tabpanel"] > :first-child,
+.tab-panel > :first-child,
+tabitem > :first-child {
+  margin-top: 0;
+}
+[role="tabpanel"] > :last-child,
+.tab-panel > :last-child,
+tabitem > :last-child {
+  margin-bottom: 0;
+}
+
+/* 6. Directory File Trees (<FileTree>, starlight-file-tree, .file-tree, <filetree>) */
+starlight-file-tree,
+.file-tree,
+.starlight-file-tree,
+filetree {
+  --x-space: 1.5rem;
+  --y-space: 0.2rem;
+  border: 1px solid var(--border);
+  background-color: var(--surface-2);
+  border-radius: var(--radius-md);
+  font-size: 0.85rem;
+  font-family: var(--font-mono);
+  padding: 1rem 1.25rem;
+  display: block;
+  overflow-x: auto;
+  margin: 1.75rem 0;
+  line-height: 1.7;
+}
+:is(starlight-file-tree, .file-tree, .starlight-file-tree, filetree) ul {
+  border-inline-start: 1px solid var(--border);
+  margin-inline-start: 0.5rem;
+  padding: 0;
+  padding-inline-start: 0.75rem;
+  list-style: none;
+}
+:is(starlight-file-tree, .file-tree, .starlight-file-tree, filetree) > ul {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+:is(starlight-file-tree, .file-tree, .starlight-file-tree, filetree) li {
+  margin: var(--y-space) 0;
+  padding: 0;
+  position: relative;
+}
+:is(starlight-file-tree, .file-tree, .starlight-file-tree, filetree) pre {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  font-family: inherit;
+  font-size: inherit;
+  white-space: pre;
+}
+

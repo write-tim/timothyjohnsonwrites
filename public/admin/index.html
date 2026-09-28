@@ -106,6 +106,47 @@
       .cms-link-target-label:hover .cms-link-target-text {
         color: #0f172a;
       }
+
+      /* Sveltia CMS Docs-as-Code Component Previews */
+      .starlight-preview-aside {
+        border-left: 4px solid #3b82f6;
+        background: #eff6ff;
+        padding: 0.75rem 1rem;
+        margin: 1rem 0;
+        border-radius: 0 6px 6px 0;
+        color: #1e293b;
+      }
+      .starlight-preview-aside.tip { border-color: #8b5cf6; background: #f5f3ff; }
+      .starlight-preview-aside.caution { border-color: #f59e0b; background: #fffbeb; }
+      .starlight-preview-aside.danger { border-color: #ef4444; background: #fef2f2; }
+      .starlight-preview-aside .title { display: block; margin-bottom: 0.25rem; }
+      .starlight-preview-steps {
+        border-left: 2px solid #e2e8f0;
+        margin: 1rem 0 1rem 0.5rem;
+        padding-left: 1rem;
+      }
+      .starlight-preview-filetree pre {
+        background: #f8fafc;
+        border: 1px solid #e2e8f0;
+        padding: 0.75rem;
+        border-radius: 6px;
+        font-size: 0.85rem;
+      }
+      .starlight-preview-badge {
+        display: inline-block;
+        font-size: 0.75rem;
+        font-weight: 600;
+        padding: 0.2rem 0.5rem;
+        border-radius: 9999px;
+        background: #f1f5f9;
+        border: 1px solid #cbd5e1;
+        color: #334155;
+      }
+      .starlight-preview-badge.note { background: #eff6ff; border-color: #bfdbfe; color: #1d4ed8; }
+      .starlight-preview-badge.tip { background: #f5f3ff; border-color: #ddd6fe; color: #6d28d9; }
+      .starlight-preview-badge.caution { background: #fffbeb; border-color: #fde68a; color: #b45309; }
+      .starlight-preview-badge.danger { background: #fef2f2; border-color: #fecaca; color: #b91c1c; }
+      .starlight-preview-badge.success { background: #ecfdf5; border-color: #a7f3d0; color: #047857; }
     </style>
   </head>
   <body>
@@ -113,6 +154,178 @@
     <script src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js"></script>
 
     <script>
+      /**
+       * -----------------------------------------------------------------------
+       * Docs-as-Code Editor Components for Sveltia CMS
+       * -----------------------------------------------------------------------
+       */
+
+      // 1. Callouts / Asides (<Aside type="..." title="...">...</Aside>)
+      CMS.registerEditorComponent({
+        id: 'aside',
+        label: 'Starlight Aside / Callout',
+        fields: [
+          {
+            name: 'type',
+            label: 'Type',
+            widget: 'select',
+            options: ['note', 'tip', 'caution', 'danger'],
+            default: 'note'
+          },
+          { name: 'title', label: 'Title (Optional)', widget: 'string', required: false },
+          { name: 'content', label: 'Callout Content', widget: 'markdown' }
+        ],
+        pattern: /^<Aside(?: type="([a-zA-Z]+)")?(?: title="([^"]*)")?>\s*([\s\S]*?)\s*<\/Aside>/,
+        fromBlock: function (match) {
+          return {
+            type: match[1] || 'note',
+            title: match[2] || '',
+            content: match[3] || ''
+          };
+        },
+        toBlock: function (obj) {
+          const typeAttr = obj.type ? ` type="${obj.type}"` : '';
+          const titleAttr = obj.title ? ` title="${obj.title}"` : '';
+          return `<Aside${typeAttr}${titleAttr}>\n${obj.content || ''}\n</Aside>`;
+        },
+        toPreview: function (obj) {
+          const titleHtml = obj.title ? `<strong class="title">${obj.title}</strong>` : '';
+          return `
+            <div class="starlight-preview-aside ${obj.type || 'note'}">
+              ${titleHtml}
+              <div>${obj.content || ''}</div>
+            </div>
+          `;
+        }
+      });
+
+      // 2. Numbered Sequential Steps (<Steps>...</Steps>)
+      CMS.registerEditorComponent({
+        id: 'steps',
+        label: 'Starlight Steps',
+        fields: [
+          {
+            name: 'content',
+            label: 'Ordered Steps (use 1. 2. 3.)',
+            widget: 'markdown'
+          }
+        ],
+        pattern: /^<Steps>\s*([\s\S]*?)\s*<\/Steps>/,
+        fromBlock: function (match) {
+          return { content: match[1] || '' };
+        },
+        toBlock: function (obj) {
+          return `<Steps>\n${obj.content || ''}\n</Steps>`;
+        },
+        toPreview: function (obj) {
+          return `
+            <div class="starlight-preview-steps">
+              <div>${obj.content || ''}</div>
+            </div>
+          `;
+        }
+      });
+
+      // 3. Directory File Tree (<FileTree>...</FileTree>)
+      CMS.registerEditorComponent({
+        id: 'filetree',
+        label: 'Starlight File Tree',
+        fields: [
+          {
+            name: 'tree',
+            label: 'File Tree Structure (indented markdown list)',
+            widget: 'markdown'
+          }
+        ],
+        pattern: /^<FileTree>\s*([\s\S]*?)\s*<\/FileTree>/,
+        fromBlock: function (match) {
+          return { tree: match[1] || '' };
+        },
+        toBlock: function (obj) {
+          return `<FileTree>\n${obj.tree || ''}\n</FileTree>`;
+        },
+        toPreview: function (obj) {
+          return `
+            <div class="starlight-preview-filetree">
+              <pre>${obj.tree || ''}</pre>
+            </div>
+          `;
+        }
+      });
+
+      // 4. Badges (<Badge text="..." variant="..." size="..." />)
+      CMS.registerEditorComponent({
+        id: 'badge',
+        label: 'Starlight Badge',
+        fields: [
+          { name: 'text', label: 'Badge Text', widget: 'string', required: true },
+          {
+            name: 'variant',
+            label: 'Color Variant',
+            widget: 'select',
+            options: ['default', 'note', 'tip', 'caution', 'danger', 'success'],
+            default: 'default'
+          },
+          {
+            name: 'size',
+            label: 'Size',
+            widget: 'select',
+            options: ['small', 'medium', 'large'],
+            default: 'medium'
+          }
+        ],
+        pattern: /^<Badge text="([^"]+)"(?: variant="([^"]+)")?(?: size="([^"]+)")?\s*\/>/,
+        fromBlock: function (match) {
+          return {
+            text: match[1] || 'Badge',
+            variant: match[2] || 'default',
+            size: match[3] || 'medium'
+          };
+        },
+        toBlock: function (obj) {
+          const variant = obj.variant ? ` variant="${obj.variant}"` : '';
+          const size = obj.size ? ` size="${obj.size}"` : '';
+          return `<Badge text="${obj.text}"${variant}${size} />`;
+        },
+        toPreview: function (obj) {
+          return `<span class="starlight-preview-badge ${obj.variant || 'default'}">${obj.text || ''}</span>`;
+        }
+      });
+
+      // 5. Dual-Tab Switcher (<Tabs><TabItem label="...">...</TabItem></Tabs>)
+      CMS.registerEditorComponent({
+        id: 'tabs',
+        label: 'Starlight Tabs (2 Tabs)',
+        fields: [
+          { name: 'tab1_label', label: 'Tab 1 Label', widget: 'string', default: 'Tab 1' },
+          { name: 'tab1_content', label: 'Tab 1 Content', widget: 'markdown' },
+          { name: 'tab2_label', label: 'Tab 2 Label', widget: 'string', default: 'Tab 2' },
+          { name: 'tab2_content', label: 'Tab 2 Content', widget: 'markdown' }
+        ],
+        pattern: /^<Tabs>\s*<TabItem label="([^"]+)">\s*([\s\S]*?)\s*<\/TabItem>\s*<TabItem label="([^"]+)">\s*([\s\S]*?)\s*<\/TabItem>\s*<\/Tabs>/,
+        fromBlock: function (match) {
+          return {
+            tab1_label: match[1] || 'Tab 1',
+            tab1_content: match[2] || '',
+            tab2_label: match[3] || 'Tab 2',
+            tab2_content: match[4] || ''
+          };
+        },
+        toBlock: function (obj) {
+          return `<Tabs>\n  <TabItem label="${obj.tab1_label || 'Tab 1'}">\n    ${obj.tab1_content || ''}\n  </TabItem>\n  <TabItem label="${obj.tab2_label || 'Tab 2'}">\n    ${obj.tab2_content || ''}\n  </TabItem>\n</Tabs>`;
+        },
+        toPreview: function (obj) {
+          return `
+            <div style="border: 1px solid #e5e7eb; border-radius: 6px; overflow: hidden; margin: 1rem 0;">
+              <div style="display: flex; background: #f3f4f6; border-bottom: 1px solid #e5e7eb;">
+                <div style="padding: 0.5rem 1rem; border-bottom: 2px solid #7c3aed; font-weight: 600; background: #fff;">${obj.tab1_label || 'Tab 1'}</div>
+                <div style="padding: 0.5rem 1rem; color: #6b7280;">${obj.tab2_label || 'Tab 2'}</div>
+              </div>
+              <div style="padding: 1rem;">${obj.tab1_content || ''}</div>
+            </div>
+          `;
+        }
+      });
       /**
        * -----------------------------------------------------------------------
        * Article Dataset & Link Management for Sveltia CMS

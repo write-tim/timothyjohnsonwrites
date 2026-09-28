@@ -109,5 +109,166 @@ const getFaviconType = (path: string) => {
       <slot />
     </main>
     <Footer />
+
+    <script is:inline>
+      // Docs-as-Code Component Enhancements
+      (function() {
+        const asideIcons = {
+          note: '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>',
+          tip: '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>',
+          caution: '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>',
+          danger: '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c5.53 0 10 4.47 10 10s-4.47 10-10 10S2 17.53 2 12 6.47 2 12 2zm1 14h-2v2h2v-2zm0-10h-2v8h2V6z"/></svg>'
+        };
+        const defaultTitles = { note: 'Note', tip: 'Tip', caution: 'Caution', danger: 'Danger' };
+
+        class StarlightTabs extends HTMLElement {
+          connectedCallback() {
+            this.init();
+          }
+
+          init() {
+            let tablist = this.querySelector('[role="tablist"]');
+            const panels = Array.from(this.querySelectorAll(':scope > [role="tabpanel"], :scope > .tab-panel, :scope > tabitem'));
+            if (!panels.length) return;
+
+            if (!tablist) {
+              const wrapper = document.createElement('div');
+              wrapper.className = 'tablist-wrapper not-content';
+              tablist = document.createElement('ul');
+              tablist.setAttribute('role', 'tablist');
+              wrapper.appendChild(tablist);
+              this.insertBefore(wrapper, panels[0]);
+
+              panels.forEach((panel, i) => {
+                panel.setAttribute('role', 'tabpanel');
+                const id = panel.id || `tab-panel-${Math.random().toString(36).slice(2, 8)}-${i}`;
+                panel.id = id;
+                const tabId = `tab-${id}`;
+                panel.setAttribute('aria-labelledby', tabId);
+
+                const label = panel.getAttribute('data-label') || panel.getAttribute('label') || `Tab ${i + 1}`;
+                const li = document.createElement('li');
+                li.className = 'tab';
+                li.setAttribute('role', 'presentation');
+
+                const btn = document.createElement('button');
+                btn.setAttribute('role', 'tab');
+                btn.id = tabId;
+                btn.setAttribute('aria-controls', id);
+                btn.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
+                btn.setAttribute('tabindex', i === 0 ? '0' : '-1');
+                btn.textContent = label;
+                li.appendChild(btn);
+                tablist.appendChild(li);
+
+                if (i !== 0) {
+                  panel.hidden = true;
+                }
+              });
+            }
+
+            const tabs = Array.from(tablist.querySelectorAll('[role="tab"]'));
+            const syncKey = this.dataset.syncKey;
+
+            const selectTab = (index) => {
+              tabs.forEach((tab, i) => {
+                const isSelected = i === index;
+                tab.setAttribute('aria-selected', isSelected ? 'true' : 'false');
+                tab.setAttribute('tabindex', isSelected ? '0' : '-1');
+                if (panels[i]) {
+                  panels[i].hidden = !isSelected;
+                }
+              });
+              if (syncKey) {
+                document.querySelectorAll(`starlight-tabs[data-sync-key="${syncKey}"]`).forEach(other => {
+                  if (other !== this && other.selectTabByIndex) {
+                    other.selectTabByIndex(index);
+                  }
+                });
+              }
+            };
+
+            this.selectTabByIndex = selectTab;
+
+            tabs.forEach((tab, i) => {
+              tab.addEventListener('click', (e) => {
+                e.preventDefault();
+                selectTab(i);
+              });
+
+              tab.addEventListener('keydown', (e) => {
+                let targetIndex = null;
+                if (e.key === 'ArrowRight') {
+                  targetIndex = (i + 1) % tabs.length;
+                } else if (e.key === 'ArrowLeft') {
+                  targetIndex = (i - 1 + tabs.length) % tabs.length;
+                }
+                if (targetIndex !== null) {
+                  tabs[targetIndex].focus();
+                  selectTab(targetIndex);
+                }
+              });
+            });
+          }
+        }
+
+        if (!customElements.get('starlight-tabs')) {
+          customElements.define('starlight-tabs', StarlightTabs);
+        }
+
+        function enhanceDocsComponents() {
+          // Upgrade markdown <tabs>
+          document.querySelectorAll('tabs, .tabs:not(starlight-tabs)').forEach(el => {
+            if (el.tagName.toLowerCase() !== 'starlight-tabs') {
+              const st = document.createElement('starlight-tabs');
+              Array.from(el.attributes).forEach(attr => st.setAttribute(attr.name, attr.value));
+              while (el.firstChild) st.appendChild(el.firstChild);
+              el.parentNode.replaceChild(st, el);
+            }
+          });
+
+          // Enhance markdown <aside type="...">
+          document.querySelectorAll('aside[type], aside.aside, aside.starlight-aside').forEach(aside => {
+            if (aside.querySelector('.starlight-aside__title, .aside__title')) return;
+            const type = aside.getAttribute('type') || (aside.className.match(/(?:aside|starlight-aside)--([a-z]+)/)?.[1]) || 'note';
+            const title = aside.getAttribute('title') || defaultTitles[type] || 'Note';
+            const iconSvg = asideIcons[type] || asideIcons.note;
+
+            const titleEl = document.createElement('p');
+            titleEl.className = 'starlight-aside__title aside__title';
+            titleEl.setAttribute('aria-hidden', 'true');
+            titleEl.innerHTML = `${iconSvg}<span>${title}</span>`;
+
+            const contentEl = document.createElement('div');
+            contentEl.className = 'starlight-aside__content aside__content';
+            while (aside.firstChild) {
+              contentEl.appendChild(aside.firstChild);
+            }
+
+            aside.appendChild(titleEl);
+            aside.appendChild(contentEl);
+            aside.classList.add('starlight-aside', `starlight-aside--${type}`, 'aside', `aside--${type}`);
+          });
+
+          // Enhance markdown <badge text="...">
+          document.querySelectorAll('badge').forEach(badge => {
+            const text = badge.getAttribute('text') || badge.textContent;
+            const variant = badge.getAttribute('variant') || 'default';
+            const size = badge.getAttribute('size') || 'medium';
+            const span = document.createElement('span');
+            span.className = `sl-badge badge-pill ${variant} ${size}`;
+            span.textContent = text;
+            badge.parentNode.replaceChild(span, badge);
+          });
+        }
+
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', enhanceDocsComponents);
+        } else {
+          enhanceDocsComponents();
+        }
+        document.addEventListener('astro:page-load', enhanceDocsComponents);
+      })();
+    </script>
   </body>
 </html>

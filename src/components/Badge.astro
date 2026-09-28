@@ -1,0 +1,15 @@
+---
+interface Props {
+  text?: string;
+  variant?: 'default' | 'note' | 'tip' | 'caution' | 'danger' | 'success';
+  size?: 'small' | 'medium' | 'large';
+  class?: string;
+  [key: string]: any;
+}
+
+const { text, variant = 'default', size = 'medium', class: className, ...rest } = Astro.props;
+---
+
+<span class:list={['sl-badge', 'badge-pill', variant, size, className]} {...rest}>
+  {text ?? <slot />}
+</span>
