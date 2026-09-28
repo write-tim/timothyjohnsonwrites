@@ -108,12 +108,25 @@ for (const imgPath of imageFiles) {
   fs.unlinkSync(imgPath);
 
   // Update links across all content files
-  const searchVariants = [
-    { from: oldPublicUrl, to: newPublicUrl },
-    { from: encodeURI(oldPublicUrl), to: encodeURI(newPublicUrl) },
-    { from: oldPublicUrl.replace(/^\//, ''), to: newPublicUrl.replace(/^\//, '') },
-    { from: encodeURI(oldPublicUrl.replace(/^\//, '')), to: encodeURI(newPublicUrl.replace(/^\//, '')) },
-  ];
+  const urlWithoutExt = oldPublicUrl.slice(0, -ext.length);
+  const extsToMatch = new Set([
+    ext,
+    ext.toLowerCase(),
+    ext.toUpperCase(),
+    ...(ext.toLowerCase() === '.jpeg' ? ['.jpg', '.JPG'] : []),
+    ...(ext.toLowerCase() === '.jpg' ? ['.jpeg', '.JPEG'] : [])
+  ]);
+
+  const searchVariants = [];
+  for (const e of extsToMatch) {
+    const candidate = `${urlWithoutExt}${e}`;
+    searchVariants.push(
+      { from: candidate, to: newPublicUrl },
+      { from: encodeURI(candidate), to: encodeURI(newPublicUrl) },
+      { from: candidate.replace(/^\//, ''), to: newPublicUrl.replace(/^\//, '') },
+      { from: encodeURI(candidate.replace(/^\//, '')), to: encodeURI(newPublicUrl.replace(/^\//, '')) }
+    );
+  }
 
   let fileLinksUpdated = 0;
   for (const cFile of contentFiles) {
