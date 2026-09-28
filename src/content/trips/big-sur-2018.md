@@ -14,6 +14,11 @@ gallery:
   - /assets/trips/Big Sur/2018_Big_Sur_1.webp
   - /assets/trips/Big Sur/2018_Big_Sur_2.webp
   - /assets/trips/Big Sur/2018_Big_Sur_3.webp
+  - /assets/trips/Big Sur/2018_Big_Sur_4.webp
+  - /assets/trips/Big Sur/2018_Big_Sur_5.webp
+  - /assets/trips/Big Sur/2018_Big_Sur_6.webp
+  - /assets/trips/Big Sur/2018_Big_Sur_7.webp
+  - /assets/trips/Big Sur/2018_Big_Sur_8.webp
 draft: false
 ---
 
