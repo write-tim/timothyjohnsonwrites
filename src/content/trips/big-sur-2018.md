@@ -13,6 +13,7 @@ circlePhotos:
 gallery:
   - /assets/trips/2018_Big_Sur_1.jpg
   - /assets/trips/2018_Big_Sur_2.jpg
+  - /assets/trips/2018_Big_Sur_3.jpg
 draft: false
 ---
 
