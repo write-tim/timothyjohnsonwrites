@@ -19,9 +19,12 @@
   },
   "scripts": {
     "dev": "astro dev",
+    "prebuild": "node scripts/sync-assets.mjs",
     "build": "astro build",
     "preview": "astro preview",
-    "check": "astro check",
+    "check": "node scripts/sync-assets.mjs && astro check",
+    "move-asset": "node scripts/move-asset.mjs",
+    "sync-assets": "node scripts/sync-assets.mjs",
     "astro": "astro"
   },
   "dependencies": {

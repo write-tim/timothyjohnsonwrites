@@ -36,7 +36,10 @@ const {
 } = Astro.props;
 
 const pageTitle = title ? `${title} · ${tabSuffix}` : siteTitle;
-const imageUrl = withBase(image);
+const rawImageUrl = withBase(image);
+const imageUrl = rawImageUrl.startsWith('http')
+  ? encodeURI(decodeURI(rawImageUrl))
+  : new URL(encodeURI(decodeURI(rawImageUrl)), site.url).href;
 const faviconUrl = withBase(favicon);
 
 const getFaviconType = (path: string) => {
