@@ -1,7 +1,7 @@
 ---
 siteTitle: Timothy M. Johnson
 tabTitleSuffix: Timothy M. Johnson
-favicon: /assets/pages/favicon.svg
+favicon: /assets/favicon.svg
 siteDescription: Pictures, or it didn't happen. Adventure is out there... let's go find it.
 brandName: Timothy M. Johnson
 brandPrefix: '>'
@@ -58,7 +58,7 @@ footerSocialLinks:
     url: mailto:tim@timothyjohnsonwrites.com
     show: true
   - label: Portfolio
-    url: /projects/
+    url: https://portfolio.timothyjohnsonwrites.com
     show: true
   - label: RSS
     url: /rss.xml

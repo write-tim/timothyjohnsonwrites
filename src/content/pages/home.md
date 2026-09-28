@@ -10,7 +10,7 @@ typingRoles:
   - occasional photographer
   - writer
 bio: Adventure is out there.
-avatar: /assets/pages/tim.jpeg
+avatar: /assets/tim.jpeg
 buttons:
   - label: GitHub
     url: https://github.com/write-tim/timothyjohnsonwrites
@@ -21,7 +21,7 @@ buttons:
     icon: email
     show: true
   - label: Portfolio
-    url: /projects/
+    url: https://portfolio.timothyjohnsonwrites.com
     icon: arrow-right
     show: true
   - label: RSS

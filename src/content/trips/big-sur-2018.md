@@ -1,18 +1,17 @@
 ---
-title: Big Sur International Marathon
-place: Big Sur, California
+title: Big Sur, 2018
+place: Big Sur, 2018
 date: 2018-04-29
-summary: Running on the ragged edge of the western world.
-heroImage: /assets/trips/2018_BigSur_BixbyBridgeBig.jpg
+summary: This blog post recounts my grueling yet exhilarating experience running the Big Sur International Marathon to celebrate his 40th birthday, detailing the breathtaking coastal views, punishing hills, and his triumphant finish with my family.
+heroImage: /assets/2018_BigSur_BixbyBridgeBig.jpg
 highlights:
   - Hurricane Point
   - Taiko Drummers
   - Strawberries at mile 23
 circlePhotos:
-  - /assets/trips/2018_BigSur_BixbyBridgeBig.jpg
+  - /assets/2018_BigSur_BixbyBridgeBig.jpg
 gallery:
-  - /assets/trips/2018_BigSur_BixbyBridgeBig.jpg
-  - /assets/trips/Big_Sur.jpg
+  - /assets/2018_BigSur_BixbyBridgeBig.jpg
 draft: false
 ---
 
