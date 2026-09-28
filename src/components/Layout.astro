@@ -58,9 +58,10 @@ const getFaviconType = (path: string) => {
     <meta name="author" content={site.author.name} />
     <link rel="canonical" href={canonical} />
     <link rel="icon" type={getFaviconType(favicon)} href={faviconUrl} />
-    {favicon.endsWith('.svg') && (
-      <link rel="icon" type="image/x-icon" href={withBase('/favicon.ico')} />
-    )}
+    <link rel="icon" type="image/png" sizes="32x32" href={withBase('/favicon-32x32.png')} />
+    <link rel="icon" type="image/png" sizes="16x16" href={withBase('/favicon-16x16.png')} />
+    <link rel="apple-touch-icon" sizes="180x180" href={withBase('/apple-touch-icon.png')} />
+    <link rel="shortcut icon" href={withBase('/favicon.ico')} />
     <link rel="alternate" type="application/rss+xml" title={siteTitle} href={withBase('/rss.xml')} />
     <meta name="generator" content={Astro.generator} />
 
