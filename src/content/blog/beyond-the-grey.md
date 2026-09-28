@@ -27,14 +27,16 @@ In this tutorial, I'll walk you through my exact process for turning a sequence 
 
 ## Phase 1: Pre-Processing in Lightroom
 
-Before we can pull out the colors, we need a clean, neutral baseline. 
+Before we can pull out the colors, we need a clean, neutral baseline.
 
-1. \*\*Import and Select:\*\* Bring your raw files into Lightroom. Pick the absolute sharpest image of the bunch to act as your baseline.
-2. \*\*Neutralize White Balance:\*\* Set your White Balance to "Daylight" (around 5200K). This is crucial. We want to extract true geological colors, not the tint of Earth's atmosphere. 
-3. \*\*Lens Corrections:\*\* Check the "Remove Chromatic Aberration" box. Any purple or green color fringing on the edges of the moon will multiply during the stacking phase, ruining the crisp edge.
-4. \*\*Crop Tight:\*\* Crop the image very tightly around the moon. Cutting out the empty black sky is essential for helping Photoshop align the images later.
-5. \*\*Base Adjustments:\*\* Pull down the Highlights slightly to recover detail in the brightest craters, and add a touch of Texture. \*\*Do not touch the Saturation or Vibrance sliders yet!\*\* Leave them at zero.
-6. \*\*Sync and Export:\*\* Select all your images, click \*\*Sync\*\*, ensure your crop and lens corrections are checked, and apply the edits to the entire batch. Finally, export all the images into a new folder as 16-bit TIFFs.
+<Steps>
+1. **Import and Select:** Bring your raw files into Lightroom. Pick the absolute sharpest image of the bunch to act as your baseline.
+2. **Neutralize White Balance:** Set your White Balance to "Daylight" (around 5200K). This is crucial. We want to extract true geological colors, not the tint of Earth's atmosphere. 
+3. **Lens Corrections:** Check the "Remove Chromatic Aberration" box. Any purple or green color fringing on the edges of the moon will multiply during stacking, ruining the crisp edge.
+4. **Crop Tight:** Crop the image very tightly around the moon. Cutting out the empty black sky is essential for helping Photoshop align the images later.
+5. **Base Adjustments:** Pull down the Highlights slightly to recover detail in the brightest craters, and add a touch of Texture. **Do not touch the Saturation or Vibrance sliders yet!** Leave them at zero.
+6. **Sync and Export:** Select all your images, click **Sync**, ensure your crop and lens corrections are checked, and apply the edits to the entire batch. Finally, export all the images into a new folder as 16-bit TIFFs.
+</Steps>
 
 ***
 
