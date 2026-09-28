@@ -121,6 +121,18 @@ const getFaviconType = (path: string) => {
         };
         const defaultTitles = { note: 'Note', tip: 'Tip', caution: 'Caution', danger: 'Danger' };
 
+        function parseInlineMarkdown(text) {
+          if (!text) return '';
+          return text
+            .replace(/\*\*\*([^*]+)\*\*\*/g, '<strong><em>$1</em></strong>')
+            .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+            .replace(/__([^_]+)__/g, '<strong>$1</strong>')
+            .replace(/(?<!\*)\*([^*\n]+)\*(?!\*)/g, '<em>$1</em>')
+            .replace(/(?<!_)_([^_\n]+)_(?!_)/g, '<em>$1</em>')
+            .replace(/`([^`]+)`/g, '<code>$1</code>')
+            .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>');
+        }
+
         class StarlightTabs extends HTMLElement {
           connectedCallback() {
             this.init();
@@ -163,6 +175,13 @@ const getFaviconType = (path: string) => {
 
                 if (i !== 0) {
                   panel.hidden = true;
+                }
+
+                // If panel content is raw markdown
+                if (!panel.querySelector('p, div, ul, ol')) {
+                  const raw = panel.textContent || '';
+                  const paras = raw.trim().split(/\n\s*\n/);
+                  panel.innerHTML = paras.map(p => `<p>${parseInlineMarkdown(p.trim())}</p>`).join('');
                 }
               });
             }
@@ -217,17 +236,55 @@ const getFaviconType = (path: string) => {
         }
 
         function enhanceDocsComponents() {
-          // Upgrade markdown <tabs>
-          document.querySelectorAll('tabs, .tabs:not(starlight-tabs)').forEach(el => {
-            if (el.tagName.toLowerCase() !== 'starlight-tabs') {
-              const st = document.createElement('starlight-tabs');
-              Array.from(el.attributes).forEach(attr => st.setAttribute(attr.name, attr.value));
-              while (el.firstChild) st.appendChild(el.firstChild);
-              el.parentNode.replaceChild(st, el);
+          // 1. Procedural Steps (<Steps>, <steps>, .sl-steps, .steps)
+          document.querySelectorAll('steps, .sl-steps, .steps').forEach(el => {
+            if (el.tagName === 'OL' || el.querySelector('ol')) {
+              el.classList.add('sl-steps', 'steps');
+              return;
+            }
+
+            const raw = el.textContent || '';
+            if (!raw.trim()) return;
+
+            const lines = raw.split(/\r?\n/);
+            const items = [];
+            let currentItem = null;
+
+            for (const line of lines) {
+              const match = line.match(/^\s*(\d+)\.\s+(.*)$/);
+              if (match) {
+                if (currentItem !== null) items.push(currentItem.trim());
+                currentItem = match[2];
+              } else if (currentItem !== null) {
+                if (line.trim()) {
+                  currentItem += ' ' + line.trim();
+                }
+              }
+            }
+            if (currentItem !== null) {
+              items.push(currentItem.trim());
+            }
+
+            if (items.length === 0) {
+              lines.forEach(l => {
+                if (l.trim()) items.push(l.trim());
+              });
+            }
+
+            if (items.length > 0) {
+              const ol = document.createElement('ol');
+              items.forEach(itemText => {
+                const li = document.createElement('li');
+                li.innerHTML = parseInlineMarkdown(itemText);
+                ol.appendChild(li);
+              });
+              el.innerHTML = '';
+              el.appendChild(ol);
+              el.classList.add('sl-steps', 'steps');
             }
           });
 
-          // Enhance markdown <aside type="...">
+          // 2. Callouts / Asides (<Aside>, <aside type="...">, .starlight-aside, .aside)
           document.querySelectorAll('aside[type], aside.aside, aside.starlight-aside').forEach(aside => {
             if (aside.querySelector('.starlight-aside__title, .aside__title')) return;
             const type = aside.getAttribute('type') || (aside.className.match(/(?:aside|starlight-aside)--([a-z]+)/)?.[1]) || 'note';
@@ -241,16 +298,18 @@ const getFaviconType = (path: string) => {
 
             const contentEl = document.createElement('div');
             contentEl.className = 'starlight-aside__content aside__content';
-            while (aside.firstChild) {
-              contentEl.appendChild(aside.firstChild);
-            }
-
+            
+            const raw = aside.textContent || '';
+            aside.innerHTML = '';
             aside.appendChild(titleEl);
             aside.appendChild(contentEl);
+
+            const paras = raw.trim().split(/\n\s*\n/);
+            contentEl.innerHTML = paras.map(p => `<p>${parseInlineMarkdown(p.trim())}</p>`).join('');
             aside.classList.add('starlight-aside', `starlight-aside--${type}`, 'aside', `aside--${type}`);
           });
 
-          // Enhance markdown <badge text="...">
+          // 3. Badges (<Badge text="..." variant="..." size="..." />)
           document.querySelectorAll('badge').forEach(badge => {
             const text = badge.getAttribute('text') || badge.textContent;
             const variant = badge.getAttribute('variant') || 'default';
@@ -260,12 +319,45 @@ const getFaviconType = (path: string) => {
             span.textContent = text;
             badge.parentNode.replaceChild(span, badge);
           });
+
+          // 4. Dual-Tab Switcher (<Tabs>, <tabs>, .tabs)
+          document.querySelectorAll('tabs, .tabs:not(starlight-tabs)').forEach(el => {
+            if (el.tagName.toLowerCase() !== 'starlight-tabs') {
+              const st = document.createElement('starlight-tabs');
+              Array.from(el.attributes).forEach(attr => st.setAttribute(attr.name, attr.value));
+              while (el.firstChild) st.appendChild(el.firstChild);
+              el.parentNode.replaceChild(st, el);
+            }
+          });
+
+          // 5. Directory File Trees (<FileTree>, <filetree>, .file-tree, starlight-file-tree)
+          document.querySelectorAll('filetree, .file-tree:not(starlight-file-tree), starlight-file-tree').forEach(ft => {
+            if (ft.querySelector('ul, pre')) return;
+            const raw = ft.textContent || '';
+            if (!raw.trim()) return;
+
+            const lines = raw.trim().split(/\r?\n/);
+            const ul = document.createElement('ul');
+            lines.forEach(l => {
+              const clean = l.replace(/^\s*[-*]\s*/, '').trim();
+              if (!clean) return;
+              const li = document.createElement('li');
+              const isDir = clean.endsWith('/');
+              const icon = isDir ? '📁 ' : '📄 ';
+              li.textContent = icon + clean;
+              ul.appendChild(li);
+            });
+            ft.innerHTML = '';
+            ft.appendChild(ul);
+            ft.classList.add('starlight-file-tree', 'file-tree');
+          });
         }
+
+        // Run immediately as DOM is parsed
+        enhanceDocsComponents();
 
         if (document.readyState === 'loading') {
           document.addEventListener('DOMContentLoaded', enhanceDocsComponents);
-        } else {
-          enhanceDocsComponents();
         }
         document.addEventListener('astro:page-load', enhanceDocsComponents);
       })();

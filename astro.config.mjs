@@ -8,3 +8,4 @@ export default defineConfig({
   site: 'https://timothyjohnsonwrites.com',
   integrations: [sitemap()],
 });
+

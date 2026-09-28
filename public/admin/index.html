@@ -218,9 +218,33 @@
           return `<Steps>\n${obj.content || ''}\n</Steps>`;
         },
         toPreview: function (obj) {
+          const content = obj.content || '';
+          const lines = content.split(/\r?\n/);
+          const items = [];
+          let current = null;
+          for (const line of lines) {
+            const m = line.match(/^\s*(\d+)\.\s+(.*)$/);
+            if (m) {
+              if (current !== null) items.push(current.trim());
+              current = m[2];
+            } else if (current !== null && line.trim()) {
+              current += ' ' + line.trim();
+            }
+          }
+          if (current !== null) items.push(current.trim());
+          if (items.length === 0 && content.trim()) items.push(content.trim());
+
+          const listHtml = items.map(function(item) {
+            const parsed = item
+              .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+              .replace(/_([^_]+)_/g, '<em>$1</em>')
+              .replace(/`([^`]+)`/g, '<code>$1</code>');
+            return '<li style="margin-bottom: 0.75rem;">' + parsed + '</li>';
+          }).join('');
+
           return `
-            <div class="starlight-preview-steps">
-              <div>${obj.content || ''}</div>
+            <div class="starlight-preview-steps" style="border-left: 3px solid #7c3aed; padding-left: 1.25rem; margin: 1rem 0;">
+              <ol style="padding-left: 1.25rem; margin: 0; line-height: 1.6;">${listHtml}</ol>
             </div>
           `;
         }
