@@ -1,8 +1,8 @@
 ---
-title: 'Finding the Focus in Zion: The Textures of the Desert'
+title: Finding the Focus in Zion
 place: Zion National Park
 date: 2024-01-01
-summary: Starting the year in awe.
+summary: 'Starting the year in awe: the textures of the desert.'
 heroImage: /assets/2014_Zion_Watchman.jpeg
 highlights:
   - The Watchman
