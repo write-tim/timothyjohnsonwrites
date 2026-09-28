@@ -17,7 +17,7 @@ coverImage: ''
 draft: false
 ---
 
-There is a long-standing philosophical divide in technical communication.
+A long-standing philosophical divide exists in technical communication.
 
 On one side stand **Docs-as-Code purists**: engineers and technical writers who believe all documentation belongs directly in Git. Content lives in Markdown and MDX files, taxonomy is governed by YAML frontmatter, peer review happens in Pull Requests, and deployments run through automated CI/CD pipelines. This model is rock-solid, eliminates vendor lock-in, and costs next to nothing to host on static infrastructure.
 
@@ -25,22 +25,22 @@ On the other side stand **subject matter experts (SMEs), product managers, and n
 
 Traditional attempts to bridge this gap usually compromise on either developer autonomy (forcing teams into walled-garden SaaS tools like Confluence or proprietary headless CMS platforms) or writer experience (asking non-technical contributors to write raw Markdown in terminal editors).
 
-To demonstrate how modern web tooling can eliminate this compromise entirely, I designed, architected, and deployed the **[Docs-as-Code Blueprint](https://docs.timothyjohnsonwrites.com/)** ([docs.timothyjohnsonwrites.com](https://docs.timothyjohnsonwrites.com/)).
+To demonstrate how modern web tooling can eliminate this compromise entirely, I designed, architected, and deployed the [**Docs-as-Code Blueprint**](https://docs.timothyjohnsonwrites.com/) ([docs.timothyjohnsonwrites.com](https://docs.timothyjohnsonwrites.com/)).
 
 This article details the architecture, design principles, and platform engineering decisions behind building this living "meta" documentation system.
 
----
+***
 
 ## 1. What is a "Meta" Documentation Site?
 
 The Docs-as-Code Blueprint is a **documentation site about writing documentation**. It serves a dual purpose:
 
 1. **A Technical Writing Style Guide & Operational Manual**: It establishes editorial voice and tone, grammar contracts, terminology word lists, and component standards for contributors.
-2. **A Living Component Specimen & Architecture Showcase**: It renders interactive UI components side-by-side with their raw MDX source code and the exact CMS configuration required to produce them.
+2. **A Living Component Specimen & Architecture Showcase**: It renders interactive UI components side by side with their raw MDX source code and the exact CMS configuration required to produce them.
 
 Instead of writing static prose describing how a component should look, the site serves as its own sandbox. A technical writer or engineer can see a live `<Aside>`, `<Tabs>`, `<FileTree>`, or `<Steps>` element rendered on the page, inspect the underlying markup, and understand how the visual CMS serializes it into Git.
 
-```
+```plain
 ┌────────────────────────────────────────────────────────┐
 │               Living Docs-as-Code System               │
 ├──────────────────────────┬─────────────────────────────┤
@@ -52,26 +52,26 @@ Instead of writing static prose describing how a component should look, the site
 └──────────────────────────┴─────────────────────────────┘
 ```
 
----
+***
 
 ## 2. The Modern Jamstack Toolchain
 
 To ensure absolute independence, instant page loads, and zero operational overhead, the Blueprint runs on a completely serverless static stack:
 
-- **[Astro](https://astro.build/) & [Starlight](https://starlight.astro.build/)**: The static compilation engine. Astro transforms raw Markdown and MDX files into zero-JS static HTML, while Starlight delivers accessible navigation sidebars, native dark mode, and client-side search via [Pagefind](https://pagefind.app/).
-- **[Sveltia CMS](https://github.com/sveltia/sveltia-cms)**: A modern, lightweight, Svelte-powered visual CMS that operates entirely in the browser as a static Single Page Application (`/admin/`). It commits directly to GitHub without requiring a database backend.
+- [**Astro**](https://astro.build/) **&** [**Starlight**](https://starlight.astro.build/): The static compilation engine. Astro transforms raw Markdown and MDX files into zero-JS static HTML, while Starlight delivers accessible navigation sidebars, native dark mode, and client-side search via [Pagefind](https://pagefind.app/).
+- [**Sveltia CMS**](https://github.com/sveltia/sveltia-cms): A modern, lightweight, Svelte-powered visual CMS that operates entirely in the browser as a static Single Page Application (`/admin/`). It commits directly to GitHub without requiring a database backend.
 - **GitHub & GitHub Actions**: The version control vault and automated CI/CD pipeline responsible for testing, building, and deploying the site.
 - **Mermaid.js**: A text-to-diagram compiler that turns ASCII diagram definitions into responsive SVGs at build time.
 
 Because every output is static, there are no databases to patch, no application runtimes to monitor, and zero recurring server costs.
 
----
+***
 
 ## 3. The End-to-End System Flow
 
 A robust Docs-as-Code pipeline relies on a predictable, automated lifecycle. Whether an engineer writes locally in an IDE or an author saves in Sveltia CMS, every change follows an identical, gated path:
 
-```
+```plain
 [Author / Sveltia CMS]
          │ (Direct Git Commit or PR Branch)
          ▼
@@ -96,7 +96,7 @@ A robust Docs-as-Code pipeline relies on a predictable, automated lifecycle. Whe
 4. **Human Review & Merge**: Once automated gates pass, technical writers and peer reviewers inspect the diff and merge into `main`.
 5. **Global Edge Deployment**: Compilation finishes in seconds, pushing fresh static pages globally across edge CDN nodes.
 
----
+***
 
 ## 4. Bridging the Divide: Sveltia CMS Integration
 
@@ -163,7 +163,7 @@ CMS.registerEditorComponent({
 
 When a writer clicks **Insert Aside** in the CMS toolbar, they get a friendly modal form. When saved, Sveltia serializes the form values into clean, compliant MDX that compiles natively inside Starlight.
 
----
+***
 
 ## 5. Automated Quality Gates
 
@@ -217,7 +217,7 @@ export const collections = {
 };
 ```
 
----
+***
 
 ## 6. The "Behind the Curtain" Design System
 
@@ -225,7 +225,7 @@ Documentation isn't just text; it is an interface. The Blueprint includes 11 liv
 
 1. **Procedural Steps (`<Steps>`)**: Numbered milestone guides that highlight sequence without tedious manual formatting.
 2. **Callouts & Asides (`<Aside>`)**: Categorized alerts (`note`, `tip`, `caution`, `danger`) that guide user attention safely.
-3. **Tabs & Switchers (`<Tabs>`)**: Multi-language code snippets and platform-specific installation workflows (e.g. npm, pnpm, yarn).
+3. **Tabs & Switchers (`<Tabs>`)**: Multi-language code snippets and platform-specific installation workflows (e.g., npm, pnpm, yarn).
 4. **File Trees (`<FileTree>`)**: Visual directory hierarchies showing readers where files belong in their projects.
 5. **Cards & LinkCards (`<CardGrid>`)**: Scannable navigation blocks with integrated icons.
 6. **Expressive Code**: Syntax-highlighted code blocks with diff indicators (`+` / `-`), line numbers, and terminal frames.
@@ -236,18 +236,20 @@ Documentation isn't just text; it is an interface. The Blueprint includes 11 liv
 11. **Typography & Prose**: Scannable baseline formatting adhering to Section 508 and WCAG AAA contrast standards.
 
 Each component page on [docs.timothyjohnsonwrites.com](https://docs.timothyjohnsonwrites.com/components/asides/) provides:
+
 - A **live rendered specimen** demonstrating interactive behavior.
 - The **raw MDX syntax** for developers working in code editors.
 - The **Sveltia CMS configuration** explaining how non-technical writers interact with it visually.
 
----
+***
 
 ## 7. Platform Engineering Lessons: Real-World Gotchas
 
 Engineering a seamless decoupled architecture revealed three critical technical lessons:
 
 ### 1. Strict YAML Parsing Rules
-Sveltia CMS uses a strict YAML parser. While human editors often tolerate loose formatting, strict parsers enforce a rigid distinction between *flow mapping* (`{ key: value }`) and *block mapping*.
+
+Sveltia CMS uses a strict YAML parser. While human editors often tolerate loose formatting, strict parsers enforce a rigid distinction between _flow mapping_ (`{ key: value }`) and _block mapping_.
 
 ```yaml
 # ❌ INVALID: Causes "Unexpected scalar at node end" and crashes CMS startup
@@ -260,31 +262,36 @@ hint: "Where to automatically nest this page in the site menu."
 A single stray comma on a block scalar will prevent Sveltia from parsing `config.yml`. Automated YAML validation in pre-commit hooks eliminates this risk.
 
 ### 2. The 4 MB GitHub GraphQL Payload Limit
+
 When saving content with media in Sveltia CMS, changes are committed using GitHub's GraphQL `createCommitOnBranch` mutation.
+
 - Newly uploaded images are converted to base64 strings, increasing file size by roughly **33%**.
-- GitHub's GraphQL API enforces a strict request payload ceiling of **~4 MB**.
+- GitHub's GraphQL API enforces a strict request payload ceiling of **\~4 MB**.
 - If a contributor uploads an uncompressed 6 MB camera photo directly to the CMS, the request exceeds the payload limit. GitHub terminates the connection immediately without CORS headers, causing the browser to throw an opaque error:
-  ```
-  TypeError: Failed to fetch
-  Access to fetch at 'https://api.github.com/graphql' has been blocked by CORS policy
-  ```
+
+```plain
+TypeError: Failed to fetch
+Access to fetch at 'https://api.github.com/graphql' has been blocked by CORS policy
+```
+
 **Solution**: Enforce client-side image compression or advise writers to keep web assets under 1920px and below 1 MB before uploading.
 
 ### 3. Client-Side Cache Invalidation (IndexedDB)
+
 Sveltia CMS caches repository metadata, user tokens, and schema definitions in the browser's `IndexedDB` and `localStorage`. When renaming repositories or updating branch configurations, an existing browser tab can retain stale state, attempting to query outdated GitHub references. 
 
 Performing a hard reload (**`Cmd` + `Shift` + `R`** or **`Ctrl` + `Shift` + `R`**) flushes the client cache and ensures the latest schema is parsed cleanly.
 
----
+***
 
 ## 8. Summary: Why the Blueprint Matters
 
 Treating documentation as code is often misunderstood as forcing writers to behave like software engineers. 
 
-The **[Docs-as-Code Blueprint](https://docs.timothyjohnsonwrites.com/)** proves that you don't have to choose between developer rigor and contributor ergonomics:
+The [**Docs-as-Code Blueprint**](https://docs.timothyjohnsonwrites.com/) proves that you don't have to choose between developer rigor and contributor ergonomics:
 
 - **Developers** retain complete control over Git branches, Zod schemas, pull request peer reviews, and automated CI/CD linting.
 - **Writers and Subject Matter Experts** enjoy a clean, fast, visual CMS interface with pre-built component shortcodes that eliminates all Git friction.
 - **Organizations** gain a resilient, lightning-fast, zero-maintenance documentation hub that costs nothing to host and never falls out of sync with software releases.
 
-To explore the architecture, read the editorial style guide, and inspect the live component specs, visit the live site at **[docs.timothyjohnsonwrites.com](https://docs.timothyjohnsonwrites.com/)**.
+To explore the architecture, read the editorial style guide, and inspect the live component specs, visit [**docs.timothyjohnsonwrites.com**](https://docs.timothyjohnsonwrites.com/).
