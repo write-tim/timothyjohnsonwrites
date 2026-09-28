@@ -19,6 +19,10 @@ This is called "mineral moon" photography. You can't just take a single photo an
 
 In this tutorial, I'll walk you through my exact process for turning a sequence of raw moon photos into a vibrant, noise-free mineral moon using Lightroom and Photoshop.
 
+<Aside type="note" title="Looking for Camera Gear & Settings?">
+Read [Shooting the Mineral Moon: Gear, Settings, and Best Practices](/blog/shooting-the-mineral-moon-gear-settings-and-best-practices/)
+</Aside>
+
 ## What You Need
 
 - **The Shots:** 50 to 100 raw images of the moon, shot in rapid succession on a tripod. Keep your shutter speed fast enough to freeze motion.
@@ -51,7 +55,7 @@ Here is where we eliminate the digital noise and atmospheric distortion. By stac
 3. **Important:** Do _not_ check "Attempt to Automatically Align Source Images" here. Photoshop often struggles to align a bright circle in a black void and will create a blurry, ghosted mess. Just load the files.
 4. Once loaded, select all the layers in the Layers panel. Go to **Edit > Auto-Align Layers**. Select **Reposition** (not Auto). This forces Photoshop to only shift the frames up, down, left, and right, preventing it from trying to warp the moon.
 5. With all layers still selected, right-click and choose **Convert to Smart Object**. (Grab a coffee; this might take a minute.)
-6. Go to **Layer > Smart Objects > Stack Mode > Mean** (or Median). 
+6. Go to **Layer > Smart Objects > Stack Mode > Mean** (or Median).
 </Steps>
 
 Watch as the noise completely melts away! Right-click your Smart Object and select **Rasterize Layer**. You now have a flawless, noise-free lunar canvas.
