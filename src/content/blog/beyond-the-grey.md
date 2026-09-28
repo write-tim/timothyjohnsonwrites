@@ -60,7 +60,9 @@ Here is where we eliminate the digital noise and atmospheric distortion. By stac
 
 Watch as the noise completely melts away! Right-click your Smart Object and select **Rasterize Layer**. You now have a flawless, noise-free lunar canvas.
 
-_(Pro-Tip: If Photoshop's alignment keeps failing and your moon looks blurry, download specialized, free astrophotography software like **PIPP** to center the images, and **AutoStakkert!** to stack them. It's bulletproof!)_
+<Aside type="tip" title="Pro Tip">
+_If Photoshop's alignment keeps failing and your moon looks blurry, download specialized, free astrophotography software like **PIPP** to center the images and **AutoStakkert!** to stack them. It's bulletproof!_
+</Aside>
 
 ***
 
