@@ -8,7 +8,7 @@ category: life
 author: Timothy Johnson
 tags:
   - harvest moon
-coverImage: assets/blog/2026 Harvest Moon.jpg
+coverImage: /assets/blog/2026 Harvest Moon.jpg
 draft: true
 ---
 

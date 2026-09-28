@@ -9,7 +9,7 @@ const blog = defineCollection({
     subtitle: z.string().optional(),
     description: z.string().optional(),
     date: z.coerce.date(),
-    updated: z.coerce.date().optional(),
+    updated: z.preprocess((val) => (typeof val === 'string' && val.trim() === '' ? undefined : val), z.coerce.date().optional()),
     tags: z.array(z.string()).default([]),
     coverImage: z.string().optional(),
     category: z.string().default('life'),

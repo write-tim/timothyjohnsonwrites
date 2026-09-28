@@ -62,7 +62,11 @@ export type SocialKey = keyof typeof site.socials;
  */
 export const withBase = (path: string): string => {
   const base = import.meta.env.BASE_URL.replace(/\/+$/, '');
-  if (!path.startsWith('/')) return path;
-  if (path.startsWith(`${base}/`)) return path;
-  return `${base}${path}`;
+  let normalized = path;
+  if (normalized.startsWith('assets/') || normalized.startsWith('img/')) {
+    normalized = `/${normalized}`;
+  }
+  if (!normalized.startsWith('/')) return normalized;
+  if (normalized.startsWith(`${base}/`)) return normalized;
+  return `${base}${normalized}`;
 };

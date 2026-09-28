@@ -12,7 +12,7 @@ collections:
   - name: "blog"
     label: "Blog"
     folder: "src/content/blog"
-    media_folder: "public/assets/blog"
+    media_folder: "/public/assets/blog"
     public_folder: "/assets/blog"
     create: true
     slug: "{{slug}}"
@@ -66,7 +66,7 @@ collections:
   - name: "trips"
     label: "Travel Trips"
     folder: "src/content/trips"
-    media_folder: "public/assets/trips"
+    media_folder: "/public/assets/trips"
     public_folder: "/assets/trips"
     create: true
     slug: "{{slug}}"
@@ -100,7 +100,7 @@ collections:
 
   - name: "pages"
     label: "Pages"
-    media_folder: "public/assets/pages"
+    media_folder: "/public/assets/pages"
     public_folder: "/assets/pages"
     files:
       - name: "home"
@@ -402,7 +402,7 @@ collections:
     label: "Custom Pages"
     label_singular: "Custom Page"
     folder: "src/content/custom-pages"
-    media_folder: "public/assets/pages"
+    media_folder: "/public/assets/pages"
     public_folder: "/assets/pages"
     create: true
     delete: true
