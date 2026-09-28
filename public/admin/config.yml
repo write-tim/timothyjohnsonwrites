@@ -8,28 +8,6 @@ backend:
 media_folder: "public/assets"
 public_folder: "/assets"
 
-# Automatic photo resizing and optimization during upload
-media_libraries:
-  all:
-    transformations:
-      raster_image:
-        format: webp
-        quality: 85
-        width: 2400
-        height: 2400
-      svg:
-        optimize: true
-  default:
-    config:
-      transformations:
-        raster_image:
-          format: webp
-          quality: 85
-          width: 2400
-          height: 2400
-        svg:
-          optimize: true
-
 collections:
   - name: "blog"
     label: "Blog"
