@@ -319,6 +319,13 @@ collections:
               hint: "Upload an SVG, PNG, or ICO image to display as the site favicon in the browser tab.",
             }
           - {
+              label: "Google Analytics Measurement ID",
+              name: "googleAnalyticsId",
+              widget: "string",
+              required: false,
+              hint: "Your Google Analytics 4 Measurement ID (e.g. G-XXXXXXXXXX). Leave blank to disable analytics.",
+            }
+          - {
               label: "Default Meta Description",
               name: "siteDescription",
               widget: "text",

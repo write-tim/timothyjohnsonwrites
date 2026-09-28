@@ -23,6 +23,7 @@ const hfData = headerFooterEntry?.data;
 const siteTitle = hfData?.siteTitle || site.title;
 const tabSuffix = hfData?.tabTitleSuffix || site.shortTitle;
 const favicon = hfData?.favicon || '/assets/pages/favicon.svg';
+const googleAnalyticsId = hfData?.googleAnalyticsId || import.meta.env.PUBLIC_GA_ID;
 
 const {
   title,
@@ -87,6 +88,18 @@ const getFaviconType = (path: string) => {
       const dark = t ? t === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
       document.documentElement.dataset.theme = dark ? 'dark' : 'light';
     </script>
+
+    {googleAnalyticsId && (
+      <>
+        <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`}></script>
+        <script is:inline define:vars={{ googleAnalyticsId }}>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', googleAnalyticsId);
+        </script>
+      </>
+    )}
 
     {jsonLd && <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />}
   </head>

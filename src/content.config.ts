@@ -129,6 +129,7 @@ const pages = defineCollection({
       tabTitleSuffix: z.string().optional(),
       favicon: z.string().optional(),
       siteDescription: z.string().optional(),
+      googleAnalyticsId: z.string().optional(),
 
       // Projects page fields
       eyebrow: z.string().optional(),
