@@ -68,8 +68,7 @@ if (imageFiles.length === 0) {
 // Collect all content files for link updates
 const contentExtensions = ['.md', '.mdx', '.yaml', '.yml', '.json', '.astro', '.html'];
 const searchDirs = [
-  path.join(rootDir, 'src', 'content'),
-  path.join(rootDir, 'src', 'pages'),
+  path.join(rootDir, 'src'),
   path.join(rootDir, 'public', 'admin')
 ];
 const contentFiles = searchDirs.flatMap(d => getFilesRecursively(d, contentExtensions));

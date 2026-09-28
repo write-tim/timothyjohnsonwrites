@@ -3,18 +3,18 @@ title: Finding the Focus in Zion
 place: Zion National Park
 date: 2024-01-01
 summary: 'Starting the year in awe: the textures of the desert.'
-heroImage: /assets/trips/Zion/2024_Zion_0.jpeg
+heroImage: /assets/trips/Zion/2024_Zion_0.webp
 highlights:
   - The Watchman
   - Scout's Lookout
   - The Narrows
 circlePhotos:
-  - /assets/trips/Zion/2024_Zion_0.jpeg
+  - /assets/trips/Zion/2024_Zion_0.webp
 gallery:
-  - /assets/trips/Zion/2024_Zion_0.jpeg
-  - /assets/trips/Zion/2024_Zion_1.jpg
-  - /assets/trips/Zion/2024_Zion_2.jpg
-  - /assets/trips/Zion/2024_Zion_3.jpg
+  - /assets/trips/Zion/2024_Zion_0.webp
+  - /assets/trips/Zion/2024_Zion_1.webp
+  - /assets/trips/Zion/2024_Zion_2.webp
+  - /assets/trips/Zion/2024_Zion_3.webp
 draft: false
 ---
 
