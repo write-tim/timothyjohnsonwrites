@@ -16,6 +16,16 @@ const blog = defineCollection({
     author: z.string().default('Timothy Johnson'),
     mathjax: z.boolean().default(false),
     draft: z.boolean().default(false),
+    attachments: z
+      .array(
+        z.object({
+          label: z.string().optional(),
+          file: z.string(),
+          description: z.string().optional(),
+        })
+      )
+      .optional()
+      .default([]),
   }),
 });
 
@@ -226,6 +236,16 @@ const customPages = defineCollection({
     navLabel: z.string().optional(),
     navOrder: z.number().default(100),
     showInFooter: z.boolean().default(false),
+    attachments: z
+      .array(
+        z.object({
+          label: z.string().optional(),
+          file: z.string(),
+          description: z.string().optional(),
+        })
+      )
+      .optional()
+      .default([]),
   }),
 });
 

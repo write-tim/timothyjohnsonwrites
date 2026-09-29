@@ -61,6 +61,15 @@ collections:
           default: false,
           required: false,
         }
+      - label: "File Attachments / Downloads"
+        name: "attachments"
+        widget: "list"
+        required: false
+        hint: "Add downloadable files (PDFs, guides, documents) to this post."
+        fields:
+          - { label: "File (PDF, Doc, etc.)", name: "file", widget: "file" }
+          - { label: "Download Label / Title (Optional)", name: "label", widget: "string", required: false, hint: "e.g. Download Checklist (PDF)" }
+          - { label: "Description / Size (Optional)", name: "description", widget: "string", required: false, hint: "e.g. PDF · 1.2 MB" }
       - { label: "Body", name: "body", widget: "markdown" }
 
   - name: "trips"
@@ -470,6 +479,15 @@ collections:
           default: false,
           hint: "Automatically append this page to the footer navigation links.",
         }
+      - label: "File Attachments / Downloads"
+        name: "attachments"
+        widget: "list"
+        required: false
+        hint: "Upload downloadable files (PDFs, guides, documents) for this page."
+        fields:
+          - { label: "File (PDF, Doc, etc.)", name: "file", widget: "file" }
+          - { label: "Download Label / Title (Optional)", name: "label", widget: "string", required: false, hint: "e.g. Download 'What is Ultra?' (PDF)" }
+          - { label: "Description / Size (Optional)", name: "description", widget: "string", required: false, hint: "e.g. PDF · 1.5 MB" }
       - { label: "Page Content", name: "body", widget: "markdown" }
 
 

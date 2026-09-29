@@ -1,5 +1,6 @@
 ---
 import Layout from '../components/Layout.astro';
+import Attachments from '../components/Attachments.astro';
 import { getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -39,6 +40,7 @@ const pageTitle = entry.data.title;
 const eyebrow = entry.data.eyebrow;
 const description = entry.data.description;
 const image = entry.data.image;
+const attachments = entry.data.attachments;
 ---
 
 <Layout title={pageTitle} description={description} image={image}>
@@ -49,6 +51,7 @@ const image = entry.data.image;
       <div class="prose">
         <Content />
       </div>
+      <Attachments items={attachments} />
     </div>
   </article>
 </Layout>

@@ -1,0 +1,178 @@
+---
+import Icon from './Icon.astro';
+import { withBase } from '../data/site';
+
+export interface AttachmentItem {
+  label?: string;
+  file: string;
+  description?: string;
+}
+
+export interface Props {
+  items?: AttachmentItem[];
+  title?: string;
+}
+
+const { items = [], title = 'Downloads & Attachments' } = Astro.props;
+const validItems = items.filter((item) => item && typeof item.file === 'string' && item.file.trim().length > 0);
+---
+
+{validItems.length > 0 && (
+  <section class="attachments-card" aria-label={title}>
+    <h3 class="attachments-title">
+      <Icon name="file-text" size={18} />
+      <span>{title}</span>
+    </h3>
+    <ul class="attachments-list">
+      {validItems.map((item) => {
+        const fileUrl = item.file.startsWith('http') ? item.file : withBase(item.file);
+        const fileName = item.file.split('/').pop()?.split('?')[0] || 'Download file';
+        const displayLabel = item.label?.trim() || fileName;
+        const extMatch = fileName.match(/\.([a-z0-9]+)$/i);
+        const ext = extMatch ? extMatch[1].toUpperCase() : 'FILE';
+
+        return (
+          <li class="attachment-item">
+            <a href={fileUrl} class="attachment-link" target="_blank" rel="noopener noreferrer" download>
+              <div class="attachment-icon-box">
+                <Icon name="file-text" size={20} />
+                <span class="attachment-ext">{ext}</span>
+              </div>
+              <div class="attachment-meta">
+                <span class="attachment-name">{displayLabel}</span>
+                {item.description && <span class="attachment-desc">{item.description}</span>}
+              </div>
+              <div class="attachment-btn">
+                <span>Download</span>
+                <Icon name="download" size={15} />
+              </div>
+            </a>
+          </li>
+        );
+      })}
+    </ul>
+  </section>
+)}
+
+<style>
+  .attachments-card {
+    margin-top: 2.5rem;
+    padding: 1.5rem;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border);
+    background: var(--surface-2);
+  }
+
+  .attachments-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin: 0 0 1rem 0;
+    color: var(--text-strong);
+  }
+
+  .attachments-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .attachment-item {
+    margin: 0;
+  }
+
+  .attachment-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.85rem 1rem;
+    border-radius: var(--radius-sm);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    text-decoration: none;
+    color: var(--text);
+    transition: all 0.2s ease;
+  }
+
+  .attachment-link:hover {
+    border-color: var(--accent);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .attachment-icon-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-sm);
+    background: color-mix(in srgb, var(--accent) 12%, transparent);
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .attachment-ext {
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    line-height: 1;
+    margin-top: 3px;
+  }
+
+  .attachment-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    flex-grow: 1;
+    min-width: 0;
+  }
+
+  .attachment-name {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--text-strong);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .attachment-desc {
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+
+  .attachment-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--accent);
+    padding: 0.45rem 0.85rem;
+    border-radius: var(--radius-sm);
+    background: color-mix(in srgb, var(--accent) 10%, transparent);
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+  }
+
+  .attachment-link:hover .attachment-btn {
+    background: var(--accent);
+    color: var(--on-accent);
+  }
+
+  @media (max-width: 550px) {
+    .attachment-btn span {
+      display: none;
+    }
+    .attachment-btn {
+      padding: 0.5rem;
+    }
+  }
+</style>

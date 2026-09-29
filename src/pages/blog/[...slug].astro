@@ -1,6 +1,7 @@
 ---
 import Layout from '../../components/Layout.astro';
 import Icon from '../../components/Icon.astro';
+import Attachments from '../../components/Attachments.astro';
 import { getCollection, render } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 import { site, withBase } from '../../data/site';
@@ -88,6 +89,8 @@ const jsonLd = {
       <div class="prose" style="margin-top: 2rem;">
         <Content />
       </div>
+
+      <Attachments items={post.data.attachments} />
 
       <nav aria-label="Post navigation" class="pagination" style="justify-content: space-between; margin-top: 3rem;">
         {next && <a href={withBase(`/blog/${next.id}/`)} style="display: inline-flex; align-items: center; gap: 0.5rem;"><Icon name="arrow-left" size={16} /> {next.data.title}</a>}
