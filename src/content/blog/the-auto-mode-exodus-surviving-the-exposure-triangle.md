@@ -8,7 +8,7 @@ category: life
 author: Timothy Johnson
 tags:
   - photography
-coverImage: /assets/blog/pexels-indra-projects-33937879.jpg
+coverImage: /assets/blog/pexels-indra-projects-33937879.webp
 draft: false
 ---
 
