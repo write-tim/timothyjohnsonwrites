@@ -4,13 +4,14 @@ subtitle: The 2026 Harvest Moon
 description: ''
 date: 2026-09-26T12:00:00-05:00
 updated: ''
-category: life
+category: photography
 author: Timothy Johnson
 tags:
   - harvest moon
   - photography
 coverImage: /assets/blog/2026 Harvest Moon.webp
 draft: false
+attachments: []
 ---
 
 When we look up at the night sky, the moon appears as a bright, glowing silvery-grey disc. But beneath that monochrome facade lies a vibrant geological map just waiting to be revealed. The blues indicate areas rich in titanium, while the oranges and rusty reds highlight iron-poor highlands. 
