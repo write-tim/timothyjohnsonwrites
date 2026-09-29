@@ -4,7 +4,7 @@ subtitle: Unlocking the Hidden Colors of the Lunar Surface Through High-Resoluti
 description: The moon isn't just a grey rock in the night sky—it's a vibrant tapestry of titanium and iron, hidden just out of sight. Learn the exact gear, camera settings, and field techniques required to capture the high-resolution raw files needed for a stunning mineral moon stack.
 date: 2026-09-24T13:01:00-05:00
 updated: ''
-category: life
+category: photography
 author: Timothy Johnson
 tags:
   - photography
@@ -12,6 +12,7 @@ tags:
   - settings
 coverImage: /assets/blog/2026 Harvest Moon.webp
 draft: false
+attachments: []
 ---
 
 Capturing the subtle geological colors of the lunar surface requires planning, stable gear, and precise settings. Before you even reach the post-processing and stacking phase, you have to nail the shots in the field. Here is a breakdown of the exact gear and settings used for this project, along with guidelines for capturing your own mineral moon sequence.
