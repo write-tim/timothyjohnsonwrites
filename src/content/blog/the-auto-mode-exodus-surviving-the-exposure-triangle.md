@@ -4,7 +4,7 @@ subtitle: How to take control of your camera without needing an advanced math de
 description: Ditching Auto mode can be terrifying. Here is a simplified, no-nonsense guide to conquering aperture, shutter speed, and ISO so you can finally take control of your photography.
 date: 2026-06-13T11:55:00-05:00
 updated: ''
-category: life
+category: photography
 author: Timothy Johnson
 tags:
   - photography
