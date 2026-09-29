@@ -409,93 +409,6 @@ th {
 
 .btn-ghost:hover { background: var(--surface-2); color: var(--text-strong); }
 
-/* Download Button & Card Components */
-.download-button {
-  margin: 1.5rem 0;
-}
-
-.download-button a.btn {
-  text-decoration: none !important;
-}
-
-.download-button a.btn svg {
-  flex-shrink: 0;
-}
-
-.download-card {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 0.85rem 1.15rem;
-  border-radius: var(--radius-md);
-  background: var(--surface);
-  border: 1px solid var(--border);
-  text-decoration: none !important;
-  color: var(--text);
-  max-width: 480px;
-  transition: all 0.2s ease;
-  box-shadow: var(--shadow-sm);
-}
-
-.download-card:hover {
-  border-color: var(--accent);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
-}
-
-.download-card-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 42px;
-  height: 42px;
-  border-radius: var(--radius-sm);
-  background: color-mix(in srgb, var(--accent) 12%, transparent);
-  color: var(--accent);
-  flex-shrink: 0;
-}
-
-.download-card-info {
-  display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
-  flex-grow: 1;
-  min-width: 0;
-}
-
-.download-card-title {
-  font-weight: 600;
-  font-size: 0.95rem;
-  color: var(--text-strong);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.download-card-sub {
-  font-size: 0.8rem;
-  color: var(--muted);
-}
-
-.download-card-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--accent);
-  padding: 0.4rem 0.85rem;
-  border-radius: var(--radius-sm);
-  background: color-mix(in srgb, var(--accent) 10%, transparent);
-  flex-shrink: 0;
-  transition: all 0.2s ease;
-}
-
-.download-card:hover .download-card-btn {
-  background: var(--accent);
-  color: var(--on-accent);
-}
-
 .social-row {
   display: flex;
   gap: 0.6rem;
@@ -1230,11 +1143,6 @@ html[data-theme='dark'] .category-badge.tech { color: var(--accent); }
 
 .prose a { text-decoration: underline; text-underline-offset: 3px; }
 .prose a:hover { text-decoration-thickness: 2px; }
-.prose a.btn,
-.prose .download-button a,
-.prose .download-card {
-  text-decoration: none !important;
-}
 
 .prose pre > code.language-mermaid {
   display: block;
