@@ -1,7 +1,7 @@
 ---
 title: What is “Ultra?”
 slug: what-is-ultra
-eyebrow: Help Topic
+eyebrow: Help Article
 description: ''
 image: ''
 navPlacement: none
