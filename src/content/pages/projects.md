@@ -63,21 +63,21 @@ projects:
         description: User-focused version changelogs organized by New Features, Fixes, and UI Enhancements.
       - title: Permissions & Security Explainer
         description: Clear, transparent technical summaries explaining why specific browser permissions are requested to build trust with security-conscious users.
-  - title: Help Topic
+  - title: Writing Sample
     url: /what-is-ultra/
     linkText: 'Help Topic: What is "Ultra?"'
-    focus: Writing Sample
+    focus: Change Management, Software User Assistance
     overview: During my tenure at Blackboard, one of the primary challenges we faced was guiding end-users (students) through a major software interface transition—specifically the update from Blackboard Learn's "Legacy" user interface to its "Ultra" experience.
     techStack: []
-    challenge: When software platforms roll out major redesigns, users often experience confusion, especially when both the old and new versions coexist. The article tackles this challenge by addressing key issues and helping students navigate change management.
+    challenge: When software platforms roll out major redesigns, users often experience confusion, especially when both the old and new versions coexist. The article and video tackles this challenge by addressing key issues and helping students navigate change management.
     featuresTitle: Documentation Deliverables
     features:
-      - title: 'Version Identification:'
+      - title: Version Identification
         description: It helps users figure out which version of the software they are actually using. It provides concrete visual cues, such as explaining that the "Ultra" experience features a left-hand navigation panel, while the "Original" experience uses tabs in the page header.
-      - title: 'Managing the "Mixed" Environment:'
+      - title: Managing the "Mixed" Environment
         description: It addresses the potential confusion of a transitional period by reassuring users that it is normal to see a mix of both "Ultra Course View" and "Original Course View" within their single course list.
-      - title: 'Highlighting Key Workflow Changes:'
+      - title: Highlighting Key Workflow Changes
         description: Instead of an overwhelming technical manual, it briefly introduces the most important navigational changes, such as the cross-course "activity stream" and the fact that new pages now open as layers.
-      - title: 'Accessibility and Multiple Learning Styles:'
+      - title: Accessibility and Multiple Learning Styles
         description: It provides a multi-modal approach to the explanation, supplementing the text and screenshots with a link to a narrated video and its transcript to ensure the information is accessible to all users.
 ---
