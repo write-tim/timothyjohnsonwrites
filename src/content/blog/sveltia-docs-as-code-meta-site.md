@@ -13,7 +13,7 @@ tags:
   - starlight
   - technical-writing
   - architecture
-coverImage: /assets/blog/pexels-pixabay-270632.jpg
+coverImage: /assets/blog/docs_as_code.jpg
 draft: false
 ---
 
