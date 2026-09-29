@@ -1,8 +1,8 @@
 ---
-title: 'The Unforgiving Desert: Earning the View on Guadalupe Peak'
+title: The Unforgiving Desert
 place: Guadalupe Mountains National Park
 date: 2026-03-07
-summary: West Texas lulls you into a trance with miles of flat, sun-baked earth right up until a massive wall of ancient limestone thrusts out of the desert floor. In this post, I’m sharing the story—and the sweat—behind capturing the harsh, beautifully unforgiving landscapes of Guadalupe Mountains National Park from the highest point in Texas.
+summary: Earning the view from Guadalupe Peak.
 heroImage: /assets/trips/Guadalupe Mountains/2026_Guadalupe_Mountains_1.webp
 highlights:
   - Guadalupe Peak Trail
