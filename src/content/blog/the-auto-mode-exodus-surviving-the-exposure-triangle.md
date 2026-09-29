@@ -8,7 +8,7 @@ category: photography
 author: Timothy Johnson
 tags:
   - photography
-coverImage: /assets/blog/pexels-indra-projects-33937879.webp
+coverImage: /assets/blog/exposure_triangle.webp
 draft: false
 ---
 
