@@ -9,7 +9,7 @@ typingRoles:
   - slow runner
   - occasional photographer
   - writer
-bio: Adventure is out there.
+bio: Adventure is out there. I'm going to find it.
 avatar: /assets/pages/tim.webp
 buttons:
   - label: GitHub
