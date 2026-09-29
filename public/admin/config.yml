@@ -43,7 +43,7 @@ collections:
           label: "Category",
           name: "category",
           widget: "select",
-          options: ["life", "travel", "adventures", "tech"],
+          options: ["life", "travel", "adventures", "tech", "photography"],
           default: "life",
         }
       - {

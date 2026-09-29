@@ -833,11 +833,19 @@ html[data-theme='dark'] .badge { color: var(--accent); }
   padding: 0.18rem 0.55rem;
   border-radius: 999px;
   font-weight: 600;
+  background: var(--surface-2);
+  color: var(--muted);
 }
 
 .category-badge.tech { background: var(--accent-glow); color: var(--accent-strong); }
 html[data-theme='dark'] .category-badge.tech { color: var(--accent); }
 .category-badge.life { background: color-mix(in srgb, var(--accent-2) 16%, transparent); color: var(--accent-2); }
+.category-badge.photography { background: color-mix(in srgb, #f59e0b 16%, transparent); color: #d97706; }
+html[data-theme='dark'] .category-badge.photography { color: #fbbf24; }
+.category-badge.travel { background: color-mix(in srgb, #10b981 16%, transparent); color: #059669; }
+html[data-theme='dark'] .category-badge.travel { color: #34d399; }
+.category-badge.adventures { background: color-mix(in srgb, #8b5cf6 16%, transparent); color: #7c3aed; }
+html[data-theme='dark'] .category-badge.adventures { color: #a78bfa; }
 
 .deck-badge {
   font-size: 0.72rem;
