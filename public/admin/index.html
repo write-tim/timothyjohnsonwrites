@@ -162,10 +162,9 @@
       function initEditorComponents() {
         const cms = window.CMS || (typeof CMS !== 'undefined' ? CMS : null);
         if (!cms || typeof cms.registerEditorComponent !== 'function') {
-          // Retry briefly while Sveltia finishes mounting
           if (!window._cmsRetryCount) window._cmsRetryCount = 0;
-          if (window._cmsRetryCount++ < 30) {
-            setTimeout(initEditorComponents, 150);
+          if (window._cmsRetryCount++ < 60) {
+            setTimeout(initEditorComponents, 100);
           }
           return;
         }
@@ -361,6 +360,108 @@
           `;
         }
       });
+
+      // 6. Download Button / File Attachment (Direct toolbar button)
+      cms.registerEditorComponent({
+        id: 'download-button',
+        label: 'Download Button',
+        trigger: 'button',
+        icon: 'download',
+        fields: [
+          {
+            name: 'file',
+            label: 'File (Upload PDF/Doc or Select Asset)',
+            widget: 'file',
+            required: true
+          },
+          {
+            name: 'text',
+            label: 'Button Label / Title',
+            widget: 'string',
+            default: 'Download (PDF)'
+          },
+          {
+            name: 'variant',
+            label: 'Style',
+            widget: 'select',
+            options: [
+              { label: 'Solid Accent Button (Primary)', value: 'primary' },
+              { label: 'Outline Button (Ghost)', value: 'ghost' },
+              { label: 'Download Card (Full Width with Icon & Subtitle)', value: 'card' }
+            ],
+            default: 'primary'
+          },
+          {
+            name: 'subtext',
+            label: 'Note / File Size (Optional)',
+            widget: 'string',
+            required: false,
+            hint: 'e.g. PDF · 1.5 MB'
+          }
+        ],
+        pattern: /^<div class="download-button"([^>]*)>[\s\S]*?<\/div>/,
+        fromBlock: function (match) {
+          const attrs = match[1] || '';
+          const fileMatch = attrs.match(/data-file="([^"]*)"/);
+          const textMatch = attrs.match(/data-text="([^"]*)"/);
+          const variantMatch = attrs.match(/data-variant="([^"]*)"/);
+          const subtextMatch = attrs.match(/data-subtext="([^"]*)"/);
+          return {
+            file: fileMatch ? fileMatch[1] : '',
+            text: textMatch ? textMatch[1] : 'Download File',
+            variant: variantMatch ? variantMatch[1] : 'primary',
+            subtext: subtextMatch ? subtextMatch[1] : ''
+          };
+        },
+        toBlock: function (obj) {
+          function esc(s) {
+            return (s || '').replace(/"/g, '&quot;');
+          }
+          const file = obj.file || '';
+          const text = obj.text || 'Download File';
+          const variant = obj.variant || 'primary';
+          const subtext = obj.subtext || '';
+          const subtextAttr = subtext ? ` data-subtext="${esc(subtext)}"` : '';
+
+          if (variant === 'card') {
+            return `<div class="download-button" data-file="${esc(file)}" data-text="${esc(text)}" data-variant="card"${subtextAttr}>\n  <a href="${file}" class="download-card" download target="_blank" rel="noopener noreferrer">\n    <span class="download-card-icon">\n      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>\n    </span>\n    <span class="download-card-info">\n      <span class="download-card-title">${text}</span>\n      ${subtext ? `<span class="download-card-sub">${subtext}</span>` : ''}\n    </span>\n    <span class="download-card-btn">\n      <span>Download</span>\n      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>\n    </span>\n  </a>\n</div>`;
+          }
+
+          const btnClass = variant === 'ghost' ? 'btn btn-ghost' : 'btn btn-primary';
+          return `<div class="download-button" data-file="${esc(file)}" data-text="${esc(text)}" data-variant="${variant}"${subtextAttr}>\n  <a href="${file}" class="${btnClass}" download target="_blank" rel="noopener noreferrer">\n    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>\n    <span>${text}</span>\n  </a>\n</div>`;
+        },
+        toPreview: function (obj) {
+          const isCard = obj.variant === 'card';
+          const isGhost = obj.variant === 'ghost';
+          const bg = isGhost ? '#ffffff' : (isCard ? '#f8fafc' : 'linear-gradient(120deg, #2563eb, #1d4ed8)');
+          const color = (isGhost || isCard) ? '#0f172a' : '#ffffff';
+          const border = (isGhost || isCard) ? '1px solid #cbd5e1' : 'none';
+
+          if (isCard) {
+            return `
+              <div style="margin: 1rem 0; max-width: 440px; padding: 0.85rem 1rem; border-radius: 8px; border: 1px solid #e2e8f0; background: #f8fafc; display: flex; align-items: center; gap: 0.85rem;">
+                <div style="width: 38px; height: 38px; border-radius: 6px; background: rgba(37,99,235,0.12); color: #2563eb; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 11px;">PDF</div>
+                <div style="flex-grow: 1;">
+                  <div style="font-weight: 600; font-size: 0.95rem; color: #1e293b;">${obj.text || 'Download File'}</div>
+                  ${obj.subtext ? `<div style="font-size: 0.75rem; color: #64748b;">${obj.subtext}</div>` : ''}
+                </div>
+                <div style="font-size: 0.8rem; font-weight: 600; color: #2563eb; background: rgba(37,99,235,0.1); padding: 0.35rem 0.75rem; border-radius: 4px;">Download</div>
+              </div>
+            `;
+          }
+
+          return `
+            <div style="margin: 1rem 0;">
+              <span style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.55rem 1.15rem; border-radius: 999px; font-weight: 600; font-size: 0.9rem; background: ${bg}; color: ${color}; border: ${border}; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                <span>${obj.text || 'Download'}</span>
+              </span>
+              ${obj.subtext ? `<span style="margin-left: 0.75rem; font-size: 0.8rem; color: #64748b;">${obj.subtext}</span>` : ''}
+            </div>
+          `;
+        }
+      });
+      console.log('✅ Registered Sveltia CMS Editor Components (including Download Button)');
         } catch (e) {
           console.warn('Could not register CMS editor components:', e);
         }
