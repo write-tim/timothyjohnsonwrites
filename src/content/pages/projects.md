@@ -4,7 +4,7 @@ eyebrow: Projects
 intro: |-
   I conceived, architected, and documented the projects featured below independently. Designing and building these tools end-to-end let me approach software documentation from a unique perspective—defining the user experience, solving the product mechanics, and authoring end-user assistance materials firsthand.
 
-  These case studies highlight my approach to demystifying complex software mechanics, designing frictionless onboarding experiences, and writing clear, actionable documentation for everyday users and site administrators.
+  These case studies highlight my approach to demystifying complex software mechanics, designing frictionless onboarding experiences, and writing clear, actionable documentation for everyone from everyday users to site administrators.
 projects:
   - title: Modern Docs-as-Code Blueprint
     url: https://docs.timothyjohnsonwrites.com
@@ -63,4 +63,13 @@ projects:
         description: User-focused version changelogs organized by New Features, Fixes, and UI Enhancements.
       - title: Permissions & Security Explainer
         description: Clear, transparent technical summaries explaining why specific browser permissions are requested to build trust with security-conscious users.
+  - title: Help Topic
+    url: /what-is-ultra/
+    linkText: 'Help Topic: What is "Ultra?"'
+    focus: Writing Sample
+    overview: ''
+    techStack: []
+    challenge: ''
+    featuresTitle: Key Architectural Features
+    features: []
 ---
