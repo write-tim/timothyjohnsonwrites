@@ -10,9 +10,7 @@ navOrder: 100
 showInFooter: false
 ---
 
-## What is “Ultra?”
-
-[What is “Ultra?” | PDF](https://timothyjohnsonwrites.com/wp-content/uploads/2020/09/What-Is-22Ultra22-Blackboard-Help.pdf)
+[What is “Ultra?” | PDF](https://portfolio.timothyjohnsonwrites.com/wp-content/uploads/2020/09/What-Is-22Ultra22-Blackboard-Help.pdf#_blank)
 
 **“Ultra” describes the transformation of the interface and workflows.**
 
