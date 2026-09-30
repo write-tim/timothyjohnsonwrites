@@ -2,7 +2,7 @@
 title: Resume
 name: Timothy M. Johnson
 currentRole: Technical Writer
-currentCompany: PayIt
+currentCompany: Content Designer
 location: Remote
 showLocation: false
 phone: (618) 534-2098
