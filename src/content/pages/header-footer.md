@@ -2,8 +2,8 @@
 siteTitle: Timothy M. Johnson
 tabTitleSuffix: Timothy M. Johnson
 favicon: /assets/pages/favicon.svg
-googleAnalyticsId: 'G-6JPFC14SP9'
-siteDescription: Pictures, or it didn't happen. Adventure is out there... let's go find it.
+googleAnalyticsId: G-6JPFC14SP9
+siteDescription: Adventure is out there. I'm going to find it.
 brandName: Timothy M. Johnson
 brandPrefix: '>'
 brandSuffix: _
