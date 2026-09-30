@@ -2,9 +2,9 @@
 title: From the workshop
 eyebrow: Projects
 intro: |-
-  I conceived, architected, and documented the projects featured below independently. Designing and building these tools end-to-end let me approach software documentation from a unique perspective—defining the user experience, solving the product mechanics, and authoring end-user assistance materials firsthand.
+  I planned, built, and documented the projects listed below. By doing so, I gained a unique perspective on software documentation by defining the user experience, addressing technical challenges, and creating end-user support materials.
 
-  These case studies highlight my approach to demystifying complex software mechanics, designing frictionless onboarding experiences, and writing clear, actionable documentation for everyone from everyday users to site administrators.
+  These case studies show how I simplify complex software, ensure a smooth onboarding experience, and create clear, practical documentation for users from beginners to site administrators.
 projects:
   - title: Modern Docs-as-Code Blueprint
     url: https://docs.timothyjohnsonwrites.com
