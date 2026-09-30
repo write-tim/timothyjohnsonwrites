@@ -8,11 +8,14 @@ showLocation: false
 phone: (618) 534-2098
 showPhone: false
 contactLinks:
+  - label: Email
+    url: mailto:tim@timothyjohnsonwrites.com
+    show: true
   - label: Portfolio
     url: /projects/
     show: true
-  - label: Email
-    url: mailto:tim@timothyjohnsonwrites.com
+  - label: LinkedIn
+    url: https://www.linkedin.com/in/timothy-michael-johnson/
     show: true
 experience:
   - role: Technical Writer
