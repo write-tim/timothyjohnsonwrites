@@ -1,8 +1,8 @@
 ---
-title: 'Sand in the Alpine: A Desert that Makes No Sense'
+title: Sand in the Alpine
 place: Great Sand Dunes National Park
 date: 2026-07-16
-summary: Climb Colorado’s improbable alpine desert for burning calves, sweeping copper dunes, and one of the Rockies’ strangest views.
+summary: A Desert that Makes No Sense
 heroImage: /assets/trips/Great Sand Dunes/2026_Great_Sand_Dunes_4.webp
 highlights:
   - Sangre de Cristo Mountains
