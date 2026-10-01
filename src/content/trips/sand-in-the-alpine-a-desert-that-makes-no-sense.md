@@ -2,7 +2,7 @@
 title: Sand in the Alpine
 place: Great Sand Dunes National Park
 date: 2026-07-16
-summary: A Desert that Makes No Sense
+summary: A desert that makes no sense.
 heroImage: /assets/trips/Great Sand Dunes/2026_Great_Sand_Dunes_4.webp
 highlights:
   - Sangre de Cristo Mountains
