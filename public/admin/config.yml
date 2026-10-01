@@ -95,8 +95,8 @@ collections:
       - { label: "Summary", name: "summary", widget: "string" }
       - { label: "Hero Image", name: "heroImage", widget: "image" }
       - { label: "Highlights", name: "highlights", widget: "list", required: false, default: [] }
-      - { label: "Rotating Circle Photos", name: "circlePhotos", widget: "list", required: false, default: [], field: { label: "Photo", name: "photo", widget: "image" } }
-      - { label: "Gallery Photos", name: "gallery", widget: "list", required: false, default: [], field: { label: "Photo", name: "photo", widget: "image" } }
+      - { label: "Rotating Circle Photos", name: "circlePhotos", widget: "image", multiple: true, required: false, default: [] }
+      - { label: "Gallery Photos", name: "gallery", widget: "image", multiple: true, required: false, default: [] }
       - {
           label: "Hide Trip (Draft)",
           name: "draft",
