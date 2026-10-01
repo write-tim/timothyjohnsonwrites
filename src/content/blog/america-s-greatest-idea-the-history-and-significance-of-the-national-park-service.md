@@ -8,7 +8,7 @@ category: life
 author: Timothy Johnson
 tags:
   - NPS
-coverImage: /assets/blog/pexels-igor-passchier-27681569.jpg
+coverImage: /assets/blog/pexels-igor-passchier-27681569.webp
 draft: false
 attachments: []
 ---
