@@ -2,7 +2,7 @@
 title: 'Finding Inspiration in the Everyday: The Writer’s Perspective'
 subtitle: Keep It Stupid Simple
 description: ''
-date: 2026-09-30T22:43:00-05:00
+date: 2026-09-30T22:00:00-05:00
 updated: ''
 category: life
 author: Timothy Johnson
