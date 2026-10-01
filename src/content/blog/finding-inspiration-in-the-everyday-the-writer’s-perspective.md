@@ -9,7 +9,7 @@ author: Timothy Johnson
 tags:
   - Writing
   - Inspiration
-coverImage: /assets/blog/pexels-markus-winkler-4160144.jpg
+coverImage: /assets/blog/pexels-markus-winkler-4160144.webp
 draft: false
 attachments: []
 ---
