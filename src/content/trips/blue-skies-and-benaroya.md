@@ -2,7 +2,7 @@
 title: Blue Skies and Benaroya
 place: Seattle, WA
 date: 2026-02-06
-summary: A February Weekend in Seattle
+summary: A February weekend in Seattle.
 heroImage: /assets/trips/Seattle/2026_Seattle_4.webp
 highlights:
   - Chihuly Garden and Glass
