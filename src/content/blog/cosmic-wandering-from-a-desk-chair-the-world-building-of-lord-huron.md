@@ -10,7 +10,7 @@ tags:
   - photography
   - inspiration
   - music
-coverImage: /assets/blog/pexels-nando-paz-7607888.jpg
+coverImage: /assets/blog/pexels-nando-paz-7607888.webp
 draft: false
 attachments: []
 ---
