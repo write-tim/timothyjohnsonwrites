@@ -2,7 +2,7 @@
 title: Fault Lines and Snowmelt
 place: Grand Teton National Park
 date: 2026-06-12
-summary: The Teton Range rises straight out of the valley floor without any foothills to break the transition.
+summary: The Teton Range rises straight out of the valley floor.
 heroImage: /assets/trips/Grand Teton/2026_Grand_Teton_8.webp
 highlights:
   - Jenny Lake
