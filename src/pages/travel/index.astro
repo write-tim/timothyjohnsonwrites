@@ -6,11 +6,14 @@ import { getCollection } from 'astro:content';
 import { withBase } from '../../data/site';
 
 const trips = (await getCollection('trips', ({ data }) => !data.draft && !data.hidden)).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
-const circlePhotos = trips
-  .flatMap((t) => (t.data.circlePhotos.length > 0 ? t.data.circlePhotos : t.data.gallery))
-  .filter((src) => /\.(jpe?g|png|webp)(\?|$)/i.test(src))
-  .slice(0, 9)
-  .map(withBase);
+const circlePhotos = [
+  ...new Set(
+    trips
+      .flatMap((t) => (t.data.circlePhotos.length > 0 ? t.data.circlePhotos : (t.data.heroImage ? [t.data.heroImage] : t.data.gallery.slice(0, 1))))
+      .filter((src) => /\.(jpe?g|png|webp)(\?|$)/i.test(src))
+      .map(withBase)
+  ),
+];
 ---
 
 <Layout
