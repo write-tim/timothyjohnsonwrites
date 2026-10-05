@@ -1,5 +1,5 @@
 ---
-title: Dock Wood & Deep Space
+title: Dock Wood and Deep Space
 place: Lake Murphysboro State Park
 date: 2025-11-11
 summary: Late nights and lake skies.
