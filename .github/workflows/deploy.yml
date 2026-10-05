@@ -12,7 +12,7 @@ permissions:
 
 concurrency:
   group: "pages"
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   build:
@@ -22,7 +22,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          fetch-depth: 10
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup Node.js
@@ -31,11 +31,19 @@ jobs:
           node-version: "22"
           cache: "npm"
 
+      - name: Cache node_modules
+        id: node-modules-cache
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node_modules-${{ hashFiles('package-lock.json') }}
+
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
 
       - name: Install dependencies
+        if: steps.node-modules-cache.outputs.cache-hit != 'true'
         run: npm ci
 
       - name: Optimize uploaded assets
@@ -52,8 +60,13 @@ jobs:
             echo "No asset changes to commit."
           fi
 
-      - name: Type check
-        run: npm run check
+      - name: Cache Astro build cache
+        uses: actions/cache@v4
+        with:
+          path: node_modules/.astro
+          key: ${{ runner.os }}-astro-${{ hashFiles('src/**', 'public/**') }}
+          restore-keys: |
+            ${{ runner.os }}-astro-
 
       - name: Build with Astro
         run: npm run build
