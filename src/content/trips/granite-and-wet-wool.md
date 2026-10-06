@@ -1,8 +1,8 @@
 ---
-title: Granite and Wet Wool
+title: Where the Atlantic Meets the Granite
 place: Acadia National Park
 date: 2024-07-04
-summary: Discovering the rugged beauty of the moody Maine coastline.
+summary: Fog, spruce, and the slow crawl of deep time on the Maine coast.
 heroImage: /assets/trips/Acadia/2024_Acadia_20.webp
 highlights:
   - The Bubbles
@@ -38,18 +38,10 @@ gallery:
 draft: false
 ---
 
-Acadia is a granite fortress wrapped in wet wool. The ocean spends its days hurling cold water at the rocks, trying to wear them down. The rocks mostly just sit there and take it.
+The fog rolling off the Atlantic carries a physical weight. It settles thick in the branches of the spruce trees and dampens the roar of the ocean crashing against the cliffs below. Walking through the dense, moss-draped forests of Acadia feels like moving through a submerged world, the air heavy with the sharp, distinct smells of crushed pine needles and ocean salt.
 
-The weather here has actual weight. Thick fog rolls off the Atlantic and swallows the shoreline whole, leaving a lone bird circling above a gray churn of kelp-covered stone. Trees do not grow so much as cling. A deadwood stump stands among the boulders like a monument to a pine that spent its life fighting a saltwater headwind. Even tucked into the tall grass, bleached driftwood resembles fossilized bone.
+Above the tree line, the landscape strips away everything but the essentials. The rounded peaks of pink granite are heavily scarred with deep, parallel striations—the slow, dragging signatures of receding glaciers from the last ice age. Puddles of dark, cold rainwater collect in these ancient grooves, mirroring the shifting gray sky overhead.
 
-Moving inland offers no relief. The trails are vertical piles of pink granite. The South Bubble marker is pinned to a bald expanse of rock where the soil surrendered long ago. Earning a view here means hauling yourself upward by cold fingertips while an I-guess-we're-hiking-in-the-clouds headwind tries to shove you back toward the trailhead.
+Life up here stubbornly endures. Stunted pitch pines cling to the narrow cracks in the stone. Rather than growing tall, their root systems warp and flatten against the bare rock, finding just enough purchase in the sparse soil to anchor themselves against the constant coastal storms.
 
-But the brutality pays off.
-
-The wind drops. The sky clears. The coastline flares into fleeting, cotton-candy horizons, sea spray suspended in the evening light. Pines become black contours against a gradient sky. Then the sun disappears, turning the water into an ink-blue swirl against the rock.
-
-The real show starts in the dark. The Milky Way stretches above the quiet inlets, a brilliant smear of ancient dust totally indifferent to the cold dirt below.
-
-The island works around the edges of this stubborn geography. Working boats anchor in deep, pine-shadowed harbors, bobbing quietly before the 3:00 a.m. diesel-engine wake-up calls. Lighthouses hold their ground on the most precarious, rocky cliffs available, keeping watch over a coastline that has never been forgiving.
-
-This is harsh land. It demands thick layers and a tolerance for perpetual dampness. The tide pulls back, the fog rolls in again, and the granite stays put.
+Standing on the exposed ridge, watching the dark Atlantic stretch endlessly to the eastern horizon, the sheer age of this coastline takes over. It is a place defined entirely by friction: the ocean constantly carving at the stone, and the granite stubbornly holding its ground.
