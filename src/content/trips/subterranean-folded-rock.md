@@ -1,8 +1,8 @@
 ---
-title: Subterranean Folded Rock
+title: The Architecture of Deep Time
 place: Carlsbad Caverns National Park
 date: 2026-03-11
-summary: Deep in the desert, a massive underground world awaits.
+summary: Walking through a dissolved limestone reef, one drop at a time.
 heroImage: /assets/trips/Carlsbad Caverns/2026_Carlsbad_Caverns_3.webp
 highlights: []
 circlePhotos:
@@ -15,12 +15,10 @@ gallery:
 draft: false
 ---
 
-The Chihuahuan Desert hides a massive, alien cathedral of limestone directly beneath a perfectly ordinary patch of dry New Mexico scrub.
+The air hundreds of feet below the surface stays locked at a cool, damp fifty-six degrees, regardless of the desert conditions baking the Chihuahuan scrubland above. It smells distinctly of wet earth and ancient dust. Down here, the concept of daylight is entirely theoretical, replaced by heavy, absolute shadows and a profound stillness that swallows the sound of footsteps.
 
-Standing in the parking lot, there is absolutely no indication that the ground beneath your boots is completely hollow. The surface is just standard, sun-baked desert. You stare out across miles of dry yellow grass and spiky yucca plants, assuming the geography is exactly as it looks. Just flat, hot dirt.
+Moving through the Big Room completely upends any conventional expectation of a cave. There is no claustrophobia; instead, the floor sprawls across fourteen acres of a colossal subterranean chamber, with a ceiling that arches so high it vanishes into the dark. It is a landscape of staggering voids, hollowed out millions of years ago when hydrogen sulfide gas seeped up from deep oil deposits, mixing with groundwater to form sulfuric acid. The acid actively ate away the limestone, leaving behind these cavernous halls.
 
-Then you walk through the natural entrance and trade the New Mexico glare for heavy, damp darkness. The sheer scale of the main chamber immediately wrecks your depth perception. You follow a steep, paved switchback hundreds of feet down into the earth. It is a highly specific, I-really-hope-the-park-service-paid-the-electric-bill kind of environment.
+In the quiet, the sheer scale of time makes itself heard through the steady, echoing drip of water. Every drop falling from the ceiling carries dissolved calcite, building the environment millimeter by millimeter over millennia. Jagged stalactites hang suspended like chandeliers of melted wax, while intricate, rippling flowstones cascade down the walls like frozen waterfalls. The formations crowd the edges of the path in a chaotic, delicate geometry that took thousands of lifetimes to form in total darkness.
 
-The geology down here ignores all the rules of the surface. Massive, stacked columns of rock rise out of the shadows, surrounded by thousands of jagged, needle-thin stalactites. Entire walls are coated in pale, folded flowstone that looks exactly like heavy curtains of melted wax. You spend two hours wandering a quiet underground loop, staring at sprawling stone structures that took a few hundred thousand years to build, one agonizingly slow drop of water at a time.
-
-Eventually, the cavern trail spits you out at the visitor center elevators. We rode the metal box seven hundred feet straight back up to the surface, stepped out into the blinding afternoon sun, and drove back down the mountain to find some lunch.
+Staring across the dim expanse of the cavern floor, the surface world above feels entirely irrelevant. Isolated from weather, seasons, and the sun, the environment down here is governed solely by gravity, water, and an immense, unfathomable patience.
