@@ -8,7 +8,7 @@ category: life
 author: Timothy Johnson
 tags:
   - Photography Gear
-coverImage: /assets/blog/pexels-shafeek-18447532.jpg
+coverImage: /assets/blog/pexels-shafeek-18447532.webp
 draft: false
 attachments: []
 ---
