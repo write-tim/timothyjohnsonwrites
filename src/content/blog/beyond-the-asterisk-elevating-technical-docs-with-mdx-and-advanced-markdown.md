@@ -8,7 +8,7 @@ category: tech
 author: Timothy Johnson
 tags:
   - Docs-as-Code
-coverImage: /assets/blog/pexels-daniil-komov-34803977.jpg
+coverImage: /assets/blog/pexels-daniil-komov-34803977.webp
 draft: false
 attachments: []
 ---
