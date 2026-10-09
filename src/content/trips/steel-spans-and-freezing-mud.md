@@ -13,7 +13,7 @@ gallery:
   - /assets/trips/New River/2026_New_River_Gorge_3.webp
   - /assets/trips/New River/2026_New_River_Gorge_4.webp
   - /assets/trips/New River/2026_New_River_Gorge_5.webp
-  - /assets/trips/2026_New_River_Gorge_6.webp
+  - /assets/trips/New River/2026_New_River_Gorge_6.webp
 draft: false
 ---
 

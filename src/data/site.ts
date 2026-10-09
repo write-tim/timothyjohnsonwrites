@@ -13,7 +13,8 @@ export interface SocialLink {
     | 'arrow-right'
     | 'arrow-left'
     | 'sun'
-    | 'moon';
+    | 'moon'
+    | 'bluesky';
 }
 
 /**

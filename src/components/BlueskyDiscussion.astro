@@ -1,0 +1,175 @@
+---
+import Icon from './Icon.astro';
+
+export interface Props {
+  blueskyUrl?: string;
+  title: string;
+  postUrl?: string;
+}
+
+const { blueskyUrl, title, postUrl } = Astro.props;
+
+const handle = 'timothyjohnson.bsky.social';
+const profileUrl = `https://bsky.app/profile/${handle}`;
+
+const hasThread = Boolean(blueskyUrl && blueskyUrl.trim().length > 0);
+
+// If a thread URL is given, link directly to it.
+// Otherwise, use a Bluesky intent URL that pre-fills a mention and the article link,
+// falling back to the author profile.
+const composeText = postUrl
+  ? `Reading "${title}" by @${handle}\n\n${postUrl}`
+  : `Thoughts on "${title}" by @${handle}`;
+const composeUrl = `https://bsky.app/intent/compose?text=${encodeURIComponent(composeText)}`;
+
+const targetUrl = hasThread ? blueskyUrl! : composeUrl;
+const buttonText = hasThread ? 'Join the discussion' : 'Discuss on Bluesky';
+---
+
+<section class="bluesky-discussion" aria-label="Bluesky Discussion">
+  <div class="bluesky-content">
+    <div class="bluesky-icon-badge">
+      <Icon name="bluesky" size={24} />
+    </div>
+    <div class="bluesky-text">
+      <h3 class="bluesky-title">Join the conversation</h3>
+      <p class="bluesky-desc">
+        {hasThread
+          ? 'Have thoughts, questions, or reactions? Jump into the discussion thread on Bluesky.'
+          : 'Have thoughts or reactions to share? Join the conversation on Bluesky.'}
+      </p>
+    </div>
+  </div>
+
+  <div class="bluesky-actions">
+    <a
+      href={targetUrl}
+      class="btn btn-primary bluesky-btn"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <Icon name="bluesky" size={18} />
+      <span>{buttonText}</span>
+    </a>
+    <a
+      href={profileUrl}
+      class="bluesky-handle-link"
+      target="_blank"
+      rel="noopener noreferrer"
+      title={`Visit @${handle} on Bluesky`}
+    >
+      @{handle} ↗
+    </a>
+  </div>
+</section>
+
+<style>
+  .bluesky-discussion {
+    margin-top: 3rem;
+    padding: 1.5rem 1.75rem;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border);
+    background: var(--surface-2);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    transition: border-color 0.2s ease;
+  }
+
+  .bluesky-discussion:hover {
+    border-color: color-mix(in srgb, var(--accent) 40%, var(--border));
+  }
+
+  .bluesky-content {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    flex: 1 1 320px;
+    min-width: 0;
+  }
+
+  .bluesky-icon-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: color-mix(in srgb, #0085ff 15%, transparent);
+    color: #0085ff;
+    flex-shrink: 0;
+    transition: transform 0.2s ease;
+  }
+
+  .bluesky-discussion:hover .bluesky-icon-badge {
+    transform: scale(1.05);
+  }
+
+  .bluesky-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .bluesky-title {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-strong);
+  }
+
+  .bluesky-desc {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+
+  .bluesky-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.5rem;
+    flex-shrink: 0;
+  }
+
+  .bluesky-btn {
+    text-decoration: none !important;
+    gap: 0.5rem;
+  }
+
+  .bluesky-handle-link {
+    font-size: 0.8rem;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+
+  .bluesky-handle-link:hover {
+    color: var(--accent);
+  }
+
+  @media (max-width: 640px) {
+    .bluesky-discussion {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 1.25rem;
+      gap: 1.25rem;
+    }
+
+    .bluesky-actions {
+      width: 100%;
+      align-items: stretch;
+    }
+
+    .bluesky-btn {
+      justify-content: center;
+    }
+
+    .bluesky-handle-link {
+      text-align: center;
+    }
+  }
+</style>
