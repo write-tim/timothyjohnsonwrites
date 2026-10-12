@@ -71,6 +71,8 @@ collections:
           - { label: "Download Label / Title (Optional)", name: "label", widget: "string", required: false, hint: "e.g. Download Checklist (PDF)" }
           - { label: "Description / Size (Optional)", name: "description", widget: "string", required: false, hint: "e.g. PDF · 1.2 MB" }
       - { label: "Bluesky Discussion Link (Optional)", name: "blueskyUrl", widget: "string", required: false, hint: "Paste the URL of your post on Bluesky to direct readers to the discussion thread (e.g. https://bsky.app/profile/timothyjohnson.bsky.social/post/...)" }
+      - { label: "Share to Bluesky on publish?", name: "shareToBluesky", widget: "boolean", default: false, required: false, hint: "Toggle on to automatically post to Bluesky when published. Once posted, the link will be saved above." }
+      - { label: "Bluesky Custom Note (Optional)", name: "blueskyCustomText", widget: "string", required: false, hint: "Optional custom note/hashtags for Bluesky. If left empty, the post title, summary, and link will be used." }
       - { label: "Body", name: "body", widget: "markdown" }
 
   - name: "trips"
@@ -107,6 +109,8 @@ collections:
           hint: "Toggle on to hide this travel post from the site."
         }
       - { label: "Bluesky Discussion Link (Optional)", name: "blueskyUrl", widget: "string", required: false, hint: "Paste the URL of your post on Bluesky to direct readers to the discussion thread (e.g. https://bsky.app/profile/timothyjohnson.bsky.social/post/...)" }
+      - { label: "Share to Bluesky on publish?", name: "shareToBluesky", widget: "boolean", default: false, required: false, hint: "Toggle on to automatically post to Bluesky when published. Once posted, the link will be saved above." }
+      - { label: "Bluesky Custom Note (Optional)", name: "blueskyCustomText", widget: "string", required: false, hint: "Optional custom note/hashtags for Bluesky. If left empty, the travel title, summary, and link will be used." }
       - { label: "Story (Body)", name: "body", widget: "markdown" }
 
   - name: "pages"

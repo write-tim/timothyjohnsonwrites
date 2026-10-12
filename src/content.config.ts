@@ -27,6 +27,8 @@ const blog = defineCollection({
       .optional()
       .default([]),
     blueskyUrl: z.string().optional(),
+    shareToBluesky: z.boolean().default(false),
+    blueskyCustomText: z.string().optional(),
   }),
 });
 
@@ -44,6 +46,8 @@ const trips = defineCollection({
     draft: z.boolean().default(false),
     hidden: z.boolean().default(false),
     blueskyUrl: z.string().optional(),
+    shareToBluesky: z.boolean().default(false),
+    blueskyCustomText: z.string().optional(),
   }),
 });
 
