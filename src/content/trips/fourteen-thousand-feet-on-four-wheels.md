@@ -1,10 +1,12 @@
 ---
-title: Fourteen Thousand Feet on Four Wheels
+title: The Red Granite Tundra
 place: Colorado Springs, CO
 date: 2026-07-17
-summary: A 14er the easy way.
+summary: Breathing thin air on the edge of the Front Range.
 heroImage: /assets/trips/Colorado Springs/2026_Colorado_Springs_7.webp
-highlights: []
+highlights:
+  - 14er
+  - Pike's Peak
 circlePhotos:
   - /assets/trips/Colorado Springs/2026_Colorado_Springs_8.webp
 gallery:
@@ -17,16 +19,15 @@ gallery:
   - /assets/trips/Colorado Springs/2026_Colorado_Springs_6.webp
   - /assets/trips/Colorado Springs/2026_Colorado_Springs_5.webp
 draft: false
+blueskyUrl: ''
+shareToBluesky: false
+blueskyCustomText: ''
 ---
 
-Driving a standard vehicle to the top of the Front Range feels like a mechanical violation of nature. The road is a steep, guardrail-free climb into thin air that instantly drops the temperature thirty degrees and replaces thick forests with an expanse of red, wind-blasted stone.
+At fourteen thousand feet, the familiar comforts of a July afternoon vanish completely. Above the treeline, the Front Range strips away the dense pine forests, replacing them with a stark, exposed expanse of shattered red granite and alpine tundra. The air is visibly thinner up here, carrying a biting, unnatural chill that feels completely disconnected from the summer heat of the valleys below.
 
-Most extreme summits require a heavy pack and a profound amount of physical suffering. This one just requires a toll fee and a radiator capable of surviving a relentless, miles-long incline.
+The summit of Pikes Peak is a landscape of absolute extremes. Weather doesn’t just pass through; it forms around you. The bright, blinding high-altitude sunlight can be swallowed within minutes by dark, heavy clouds, dragging sudden hail and violent winds across the peak. Walking through the gravel, the lack of oxygen demands a slow, deliberate pace. Every movement feels heavy, serving as a constant physical reminder of the altitude.
 
-You start at the base in a comfortable summer t-shirt and immediately pitch upward. The tree line falls away. The pavement clings to the edge of sheer ledges with absolutely zero safety barriers to protect you from a lapse in steering. It is a slow, ignore-the-dashboard-temperature-gauge crawl into a completely different atmosphere.
+Yet, the hostility of the environment doesn't apply to everything. Just beyond the observation points, bighorn sheep casually navigate the sheer, vertical drops of the red boulders. They move effortlessly along the dizzying cliff faces, entirely indifferent to the freezing winds and the thin air that force everything else to seek shelter.
 
-The peak is a chaotic collision of tourist infrastructure and raw geology. You step out of the cab and are instantly hit by a biting headwind. There is barely enough oxygen to comfortably walk across the gravel lot. Weather rolls over the summit in a matter of minutes, turning bright skies into dark, heavy hail storms that scatter everyone back to the safety of their cars.
-
-But a clear window delivers. You stand on the edge of the shattered red boulders and look east across hundreds of miles of flat, sprawling plains. Bighorn sheep navigate the vertical cliff faces directly below the observation decks, ignoring the altitude entirely.
-
-Coming back down is simply an exercise in trusting your brake fluid. We left the freezing tundra behind, geared down to save the rotors, and rode the tight curves back into the valley heat. By the time the road leveled out, our ears were popping, and the car smelled faintly of hot metal.
+Standing on the edge of the summit, the scale of the continent opens up. To the east, the vertical rock gives way to hundreds of miles of flat, sprawling plains stretching endlessly toward the horizon. It is a harsh, breathless environment, but the view from the edge of the stone offers an unmatched, staggering perspective of the world sprawling out far below.
